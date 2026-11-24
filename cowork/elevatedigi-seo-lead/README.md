@@ -20,10 +20,10 @@ ever sharing a password.
    daily 9:10 AM Mon–Sat `/daily` · Mondays 8:45 AM `/weekly` · 3rd of each month `/report <client>` + `/dashboard`.
 
 ## How it's organised (from the founders' Senior SEO Manager Playbook)
-- **Loop:** Observe → Diagnose → Decide → Execute → Verify.
+- **Loop:** Observe → Diagnose → Decide → Execute → Verify → Learn. SOP and acceptance test: the founders' Master Operating Checklist.
 - **Team:** this session is the AI SEO Manager (orchestrator) with 8 specialist subagents: keyword
   research, technical SEO, content SEO, off-page, analytics, AI search, local SEO, competitor intelligence.
-- **One task queue per client** (`tasks.csv`) with severity, score, owner and approval tier; full
+- **One task queue per client** (`tasks.csv`) with priority, score, owner, approval, status (Pending/In Progress/Completed/Blocked), workflow stage (Detect → … → Close) and verification; full
   audit log in `log.md`; **SEO Intelligence Dashboard** at `<workspace>/_dashboard.html`.
 - Spec and coverage map: `docs/` in the GitHub repo.
 

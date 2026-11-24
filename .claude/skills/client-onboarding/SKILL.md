@@ -21,3 +21,11 @@ House rules: `cowork/elevatedigi-seo-lead/skills/seo-lead/SKILL.md` (load first)
    local/entity; Month 3 = content clusters + authority. Each item with KPI and tier.
 6. Create `ai-prompts.md` and run a first `ai-visibility-check`.
 7. Log it.
+
+## Onboarding checklist & gate (founders' checklist §1)
+Create `clients/<slug>/onboarding.md` from the template used by existing clients: the integrations table
+(status · last data date · permission scope) and the 16-item checklist with [x]/[~]/[ ]/[n/a]. Include
+baseline backlink/referring-domain profile and platform technical dependencies. Connect the CMS only if
+execution is required and authorised. Set **Gate status: PASSED** only when business, website, audience,
+conversion objectives and data sources are understood and KPIs, reporting periods, permissions and
+approvers are agreed. Until then, label strategic recommendations "provisional" and list what's missing.

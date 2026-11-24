@@ -24,6 +24,10 @@ Client slug. Read `profile.md`, `action-plan.md`, `log.md` first.
 9. **AI visibility:** run `ai-visibility-check` (5–10 prompts if quick).
 10. **Content gaps:** competitor pages that rank for the client's money terms and that we lack.
 
+## Coverage
+Report all 14 areas of the quality gate in `references/technical-seo.md` (✅/⚠️/❌ with evidence), plus
+the onboarding gate status from `onboarding.md`.
+
 ## Output
 - `clients/<slug>/audits/<today>-audit.md`: executive summary (5 bullets, plain English), then
   findings grouped Critical/High/Medium/Low, each with evidence (URL + data + source), fix, tier,

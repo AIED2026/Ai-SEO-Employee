@@ -35,3 +35,14 @@ check at 14 and 28 days: indexed? impressions? position? Refresh or merge if not
 ## Refresh vs new
 Existing page with impressions → improve it (faster wins). Two pages competing for one keyword → merge
 and 301. Only create new when no page matches the intent.
+
+## Additions from the founders' Master Operating Checklist §5 (beyond the QA list above)
+- **Before writing:** define the business objective and conversion action of the page; identify
+  missing information, useful angles and original insights vs competing pages; list authoritative
+  sources for every claim that needs evidence.
+- **During writing:** use keywords naturally (no repetition/manipulation); support points with examples
+  and evidence; keep the CTA relevant and proportionate; comply with industry requirements (profile.md).
+- **Before publishing:** review the URL slug (short, descriptive, no dates for evergreen pages);
+  readability, grammar and spelling; mobile layout and page functionality (open on a phone viewport);
+  external references and destination URLs work; human approval obtained; **record the published URL
+  and publication date** in log.md and keywords.csv.

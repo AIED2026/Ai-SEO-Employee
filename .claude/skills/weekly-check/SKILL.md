@@ -28,7 +28,7 @@ Run for the client named, or for every client in `clients/`, one at a time (stri
 | Performance & anomaly report | `analytics-agent` | `reports/weekly-<date>-performance.md` |
 | Prioritised keyword opportunities (pos 5–20, high-impr/low-CTR) | `keyword-research-agent` | `reports/weekly-<date>-keywords.md` |
 | Content production & refresh plan | `content-seo-agent` | `reports/weekly-<date>-content.md` |
-| Technical issue tracker (severity, owner) | `technical-seo-agent` | updates `tasks.csv` (type technical) |
+| Technical issue tracker (priority, owner) | `technical-seo-agent` | updates `tasks.csv` (type technical) |
 | Competitor intelligence summary | `competitor-intelligence-agent` | `reports/weekly-<date>-competitors.md` |
 | Backlink / authority observations | `offpage-seo-agent` | `reports/weekly-<date>-links.md` |
 | Local review (Mira, ElevateDigi, SIF UAE only) | `local-seo-agent` | `reports/weekly-<date>-local.md` |
@@ -59,3 +59,13 @@ Then log (`observe`, `diagnose`, `decide` lines) and rebuild the dashboard (`das
 ## 5. Output to the founders (one message for the portfolio)
 Table: client · status · top alert · top action · approvals needed. Then the Tier B change tables to approve.
 Phone-readable. Never pad; "no meaningful change" is a valid answer.
+
+## Checklist items not to miss (founders' Master Operating Checklist §3)
+- **Technical:** important status-code changes; broken internal links and redirect chains/loops (crawl
+  summary: "Broken internal links", "Redirect chains", "Redirect loops"); canonicals on key templates;
+  sitemap/robots unintended exclusions; structured data validity (crawl "Invalid JSON-LD", then Rich
+  Results Test in Chrome for money pages); mobile usability and Core Web Vitals (`psi.py`, GSC CWV report).
+- **Content:** review content published this week against the editorial and factual standards
+  (`references/content.md` checklist); check cannibalisation (one query → several pages in GSC).
+- **Off-page:** brand mentions and partnership opportunities (web search "brand" -site:domain).
+- **Keywords:** keyword gaps vs competitors; map priority keywords to existing or justified new pages.

@@ -49,3 +49,14 @@ changed pages (`data-pull`) and record the result in the change file.
 
 ## Rollback
 Re-apply the "Backup" values the same way (also Tier B, but pre-approved if the change caused harm).
+
+## Task workflow & close gate
+- Update the task as you go: `recommend` → `await-approval` (approval=required) → after the founder says
+  approved: `tasks.py set <slug> <id> approval=approved stage=execute status=in-progress` → `stage=verify`
+  → `verification=passed|failed` → `stage=report` → `stage=close status=completed`. `tasks.py` refuses
+  execute/verify/close while approval is still `required`.
+- **Never delete or redirect a page** without first reviewing its historical traffic (GSC 16 months),
+  backlinks (GSC/Bing Links) and dependencies (internal links, menus, ads/campaign URLs). Put that evidence
+  in the change table.
+- Before closing, pass the 10-point **close gate** in `references/operating-model.md`. Record the published
+  or changed URL and date in `log.md`, and set `verify_by` for the outcome check (Learn).

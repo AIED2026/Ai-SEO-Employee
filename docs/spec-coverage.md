@@ -40,3 +40,24 @@ Playbook"). Plugin root: `cowork/elevatedigi-seo-lead/` (abbreviated `P/`).
 2. Founders fill `TBD` fields in each `profile.md` (revenue goals, approvers, implementers, competitor list).
 3. Free PageSpeed API key (Core Web Vitals).
 4. Optional: Ahrefs or Semrush (both have Claude connectors) for keyword volumes, rank tracking and backlink intelligence.
+
+---
+
+# Master Operating Checklist → implementation (only items not already covered above)
+
+Spec: `docs/master-operating-checklist.md`. Overlaps with the playbook were skipped.
+
+| § | New requirement | Where it lives |
+|---|---|---|
+| 1 | Onboarding checklist (16 items) + **completion gate**; mark missing integrations/baselines | `clients/<slug>/onboarding.md`; `client-onboarding`; gate rule in operating-model.md and seo-lead |
+| 2 | 5 daily decision questions | operating-model.md; `daily-check` step 6 |
+| 3 | Weekly technical: broken internal links, redirect chains/loops, structured-data validity, mobile/CWV; review newly published content; brand mentions | `crawl.py` (new issue types), `weekly-check` checklist section |
+| 5 | Content checklist items: business objective, original insights, sources, URL slug, readability, mobile layout, record URL and date | `references/content.md` additions |
+| 6 | 14-area technical quality gate, incl. HTTPS and mobile | `references/technical-seo.md`; `site-audit` coverage; crawler HTTPS check |
+| 7 | GEO recording: platform, prompt, date, geography, result; inaccurate brand info; AI referral traffic; caveat | `ai-visibility-check` recording standard |
+| 8 | Final approval & reporting checklist (10 points) | Close gate in operating-model.md; `onpage-change` |
+| 9 | P0–P3 criteria + expected response; risk/urgency override the score | operating-model.md priority table |
+| 10 | New mandatory rules (metrics, rankings, delete/redirect review, algorithm claims, keyword intent, estimates, escalation) | role-and-judgment.md |
+| 11 | Task fields: status Pending/In Progress/Completed/Blocked, approval, verification, activity log; workflow Detect → … → Close | `tasks.csv` schema, `tasks.py` (migrate, approval guard), dashboard |
+| 13 | Product acceptance checklist | `docs/acceptance-checklist.md` (honest status); dashboard shows integrations, gate, job cadence |
+| End | Observe → Diagnose → Decide → Execute → Verify → **Learn** | operating-model.md loop (Learn = outcomes into profile + confidence updates) |

@@ -38,3 +38,12 @@ use GSC URL Inspection → "View crawled page".
 - **High:** duplicate money pages, wrong canonicals on a few pages, slow LCP on money pages, broken internal links to money pages.
 - **Medium:** missing/duplicate meta, multiple H1s, missing schema, orphan pages.
 - **Low:** alt text on decorative images, title length cosmetics.
+
+## Quality gate: 14 areas every audit must cover (founders' checklist §6)
+Crawling · Indexing · Robots.txt · XML sitemap (valid, current, canonical indexable URLs only) · Canonical ·
+Redirects (no avoidable chains/loops) · 404/5xx (understood and handled) · Architecture · Internal links ·
+**Mobile** (works on common devices: check a phone viewport and GSC/Lighthouse mobile issues) · Performance
+(CWV from reliable field data first) · Structured data (valid, accurate, matches visible content) ·
+Duplicate content · **HTTPS** (consistent: http → https 301, no http:// internal links, no mixed content).
+Report each area as ✅ / ⚠️ / ❌ with evidence. Classify issues Critical/High/Medium/Low (= P0–P3) by
+affected URLs, business impact, confidence and risk. Don't treat every crawler warning as equally important.

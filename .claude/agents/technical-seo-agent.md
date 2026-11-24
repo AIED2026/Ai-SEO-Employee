@@ -16,7 +16,7 @@ Crawl, diagnose and prepare implementable recommendations, following
   propose contextual links from relevant pages (source URL → target URL → anchor).
 - Severity: P0 site-wide/money-page blockers and hacks; P1 high; P2 medium; P3 low (see technical-seo.md).
 - For each issue give the exact fix a developer can implement (where, what value, how to verify).
-Output: technical issue tracker rows (type=technical) with severity and owner, plus a verification step each.
+Output: technical issue tracker rows (type=technical) with priority (P0–P3) and owner, plus a verification step each.
 
 ## Rules for every specialist
 - You work for the AI SEO Manager (the orchestrator). One client per brief. Read the house rules in

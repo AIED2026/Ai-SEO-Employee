@@ -50,11 +50,21 @@ def client_data(ws, slug):
         m = re.search(r"## Queries\s*\n(Totals[^\n]+)", read(gs[0]))
         d["gsc"] = f"{m.group(1)} ({os.path.basename(gs[0])[:10]})" if m else f"see {os.path.basename(gs[0])}"
     tasks = list(csv.DictReader(open(os.path.join(c, "tasks.csv"), encoding="utf-8"))) if os.path.exists(os.path.join(c, "tasks.csv")) else []
-    opn = [t for t in tasks if t["status"] in ("open", "awaiting-approval", "approved", "in-progress", "blocked")]
-    d["sev"] = {s: sum(1 for t in opn if t["severity"] == s) for s in ("P0", "P1", "P2", "P3")}
-    d["approvals"] = [t for t in opn if t["status"] == "awaiting-approval"]
-    d["top"] = sorted(opn, key=lambda t: (t["severity"], -float(t["score"] or 0)))[:5]
-    d["done"] = sum(1 for t in tasks if t["status"] in ("done", "verified"))
+    pri = lambda t: t.get("priority") or t.get("severity", "P9")
+    opn = [t for t in tasks if t.get("stage") != "close" and t.get("status") not in ("completed", "done", "verified")]
+    d["sev"] = {s: sum(1 for t in opn if pri(t) == s) for s in ("P0", "P1", "P2", "P3")}
+    d["approvals"] = [t for t in opn if t.get("stage") == "await-approval" or t.get("status") == "awaiting-approval"]
+    d["top"] = sorted(opn, key=lambda t: (pri(t), -float(t["score"] or 0)))[:5]
+    for t in d["top"]:
+        t["_pri"] = pri(t)
+    d["done"] = sum(1 for t in tasks if t not in opn)
+    d["verified"] = sum(1 for t in tasks if t.get("verification") == "passed")
+    ob = read(os.path.join(c, "onboarding.md"))
+    d["gate"] = (re.search(r"Gate status:\s*\**([A-Z ]+)", ob) or [None, "unknown"])[1].strip()
+    d["integrations"] = [(m[0].strip(), m[1].strip(), m[2].strip()) for m in re.findall(r"^\|\s*([^|]+?)\s*\|\s*(connected|not connected|partial|not applicable|not available)\s*\|\s*([^|]*?)\s*\|", ob, re.M)]
+    rep = lambda pat: (os.path.basename(latest(os.path.join(c, pat))[0]) if latest(os.path.join(c, pat)) else "")
+    d["cadence"] = {"daily": d["watch_date"] or "never", "weekly": d["status_date"] or "never",
+                    "monthly": (re.search(r"(\d{4}-\d{2})", rep("reports/*-report.md")) or [None, "never"])[1]}
     d["log"] = [l for l in read(os.path.join(c, "log.md")).splitlines() if re.match(r"\d{4}-\d{2}-\d{2}", l)][-3:]
     return d
 
@@ -85,16 +95,16 @@ def render(ws, cl):
          f"<h1>SEO Intelligence Dashboard</h1><div class='muted'>ElevateDigi portfolio · built {now} from workspace files · numbers carry their own dates</div>",
          "<div class='kpis'>" + "".join(f"<div class='kpi'><span class='pill {s}'>{s}</span><b>{tot[s]}</b><span class='muted'>open</span></div>" for s in tot),
          f"<div class='kpi'><span class='muted'>Awaiting approval</span><b>{appr}</b></div></div>",
-         "<div class='card wrap'><table><tr><th>Client</th><th>Status</th><th>Alerts (daily watch)</th><th>Open P0/P1</th><th>Approvals</th><th>Last crawl</th><th>Search Console</th></tr>"]
+         "<div class='card wrap'><table><tr><th>Client</th><th>Status</th><th>Alerts (daily watch)</th><th>Open P0/P1</th><th>Approvals</th><th>Last crawl</th><th>Search Console</th><th>Onboarding gate</th><th>Jobs (daily · weekly · monthly)</th></tr>"]
     for c in cl:
         o.append(f"<tr><td><a href='#{c['slug']}'>{H(c['name'])}</a></td><td>{H(c['status'])}<div class='muted'>{c['status_date']}</div></td>"
                  f"<td>{len(c['watch'])}<div class='muted'>{c['watch_date'] or 'not run'}</div></td><td>{c['sev']['P0']} / {c['sev']['P1']}</td>"
-                 f"<td>{len(c['approvals'])}</td><td>{c['crawl_date']} · {c['pages']} pages</td><td>{H(c['gsc']) or '<span class=muted>not connected</span>'}</td></tr>")
+                 f"<td>{len(c['approvals'])}</td><td>{c['crawl_date']} · {c['pages']} pages</td><td>{H(c['gsc']) or '<span class=muted>not connected</span>'}</td><td>{H(c['gate'])}</td><td class='muted'>{c['cadence']['daily']} · {c['cadence']['weekly']} · {c['cadence']['monthly']}</td></tr>")
     o.append("</table></div><div class='grid'>")
     for c in cl:
         o.append(f"<section class='card' id='{c['slug']}'><h2>{H(c['name'])}</h2><div class='muted'>{H(c['url'])}</div>")
         o.append("<h3>Top actions (task queue)</h3><ul>" + ("".join(
-            f"<li><span class='pill {H(t['severity'])}'>{H(t['severity'])}</span> {H(t['title'])} <span class='muted'>· {H(t['owner'])} · tier {H(t['approval_tier'])} · {H(t['status'])}</span></li>" for t in c["top"]) or "<li class='muted'>No open tasks</li>") + "</ul>")
+            f"<li><span class='pill {H(t['_pri'])}'>{H(t['_pri'])}</span> {H(t['title'])} <span class='muted'>· {H(t['owner'])} · approval {H(t.get('approval', t.get('approval_tier','')))} · {H(t.get('stage') or t.get('status',''))}</span></li>" for t in c["top"]) or "<li class='muted'>No open tasks</li>") + "</ul>")
         if c["watch"]:
             o.append("<h3>Daily watch alerts</h3><ul>" + "".join(f"<li>{H(w)}</li>" for w in c["watch"][:6]) + "</ul>")
         if c["issues"]:
@@ -102,7 +112,10 @@ def render(ws, cl):
                 f"<tr><td>{H(k)}</td><td>{v}</td><td class='muted'>{'' if dlt is None else f'{dlt:+d}'}</td></tr>" for k, v, dlt in c["issues"]) + "</table>")
         if c["approvals"]:
             o.append("<h3>Awaiting your approval</h3><ul>" + "".join(f"<li>{H(t['id'])}: {H(t['title'])}</li>" for t in c["approvals"]) + "</ul>")
-        o.append(f"<h3>Recent activity</h3><ul>" + ("".join(f"<li class='muted'>{H(l[:160])}</li>" for l in c["log"]) or "<li class='muted'>none</li>") + f"</ul><div class='muted'>Tasks done/verified: {c['done']}</div></section>")
+        if c["integrations"]:
+            o.append("<h3>Integrations (status · last data)</h3><table>" + "".join(
+                f"<tr><td>{H(n)}</td><td>{'✅' if s == 'connected' else ('➖' if s in ('not applicable',) else '⚠️')} {H(s)}</td><td class='muted'>{H(dt)}</td></tr>" for n, s, dt in c["integrations"]) + "</table>")
+        o.append(f"<h3>Recent activity</h3><ul>" + ("".join(f"<li class='muted'>{H(l[:160])}</li>" for l in c["log"]) or "<li class='muted'>none</li>") + f"</ul><div class='muted'>Tasks completed: {c['done']} · verified: {c['verified']}</div></section>")
     o.append("</div></main></body></html>")
     return "\n".join(o)
 

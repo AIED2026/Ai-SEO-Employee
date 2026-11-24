@@ -87,6 +87,7 @@ def schema_types(soup):
 
 def analyse(url, r, secs, host_set):
     row = {"url": url, "status": r.status_code, "final_url": r.url, "redirected": r.url.rstrip("/") != url.rstrip("/"),
+           "redirect_hops": len(r.history),
            "secs": secs, "bytes": len(r.content), "content_type": r.headers.get("content-type", "")}
     links = []
     if "html" not in row["content_type"]:
@@ -116,14 +117,18 @@ def analyse(url, r, secs, host_set):
         "og_title": bool(soup.find("meta", property="og:title")),
     })
     row["meta_desc_len"] = len(row["meta_desc"])
+    http_links = 0
     for a in soup.find_all("a", href=True):
         h = a["href"].strip()
+        if h.startswith("http://") and urlparse(h).netloc in host_set:
+            http_links += 1
         if h.startswith(("mailto:", "tel:", "javascript:", "#", "whatsapp:")):
             continue
         absu = norm(urljoin(r.url, h))
         if urlparse(absu).netloc in host_set:
             links.append(absu)
     row["internal_links_out"] = len(set(links))
+    row["http_internal_links"] = http_links
     return row, links
 
 
@@ -150,6 +155,7 @@ def crawl(root, max_pages, delay):
 
     queue = [base] + [u for u in sm_urls if urlparse(u).netloc in host_set]
     seen, rows, inlinks = set(), [], Counter()
+    sources = defaultdict(list)
     while queue and len(rows) < max_pages:
         u = norm(queue.pop(0))
         if u in seen or SKIP_EXT.search(u) or "?" in u and len(rows) > 20:
@@ -157,18 +163,21 @@ def crawl(root, max_pages, delay):
         seen.add(u)
         r, secs, err = fetch(u)
         if r is None:
-            rows.append({"url": u, "status": "ERR", "error": err, "secs": secs})
+            rows.append({"url": u, "status": "LOOP" if "redirect" in (err or "").lower() else "ERR", "error": err, "secs": secs})
             continue
         row, links = analyse(u, r, secs, host_set)
         row["in_sitemap"] = u in sm_urls
         rows.append(row)
         for l in set(links):
             inlinks[l] += 1
+            if len(sources[l]) < 5:
+                sources[l].append(u)
             if l not in seen and not SKIP_EXT.search(l):
                 queue.append(l)
         time.sleep(delay)
     for row in rows:
         row["internal_links_in"] = inlinks.get(row["url"], 0)
+        row["linked_from"] = " ".join(sources.get(row["url"], [])[:3])
     meta = {"root": base, "robots_txt": robots, "sitemaps": sm_files, "sitemap_url_count": len(sm_urls),
             "host_variants": variants, "soft_404": soft404, "crawled": len(rows),
             "crawl_capped": bool(queue) and len(rows) >= max_pages}
@@ -185,6 +194,12 @@ def rollup(rows, meta):
             issues["Broken/erroring URLs (4xx/5xx/ERR)"].append(f"{u} [{st}]")
         if r.get("redirected"):
             issues["Internal URLs that redirect"].append(f"{u} -> {r.get('final_url')}")
+        if int(r.get("redirect_hops") or 0) >= 2:
+            issues["Redirect chains (2+ hops)"].append(f"{u} ({r['redirect_hops']} hops) -> {r.get('final_url')}")
+        if st == "LOOP":
+            issues["Redirect loops"].append(u)
+        if (st == "ERR" or st == "LOOP" or (isinstance(st, int) and st >= 400)) and r.get("linked_from"):
+            issues["Broken internal links (target ← linked from)"].append(f"{u} [{st}] ← {r['linked_from']}")
     for r in html:
         u = r["url"]
         if "noindex" in (r.get("robots_meta", "") + r.get("x_robots", "")).lower():
@@ -216,6 +231,10 @@ def rollup(rows, meta):
             issues["Images missing alt text"].append(f"{u} ({r['imgs_no_alt']}/{r['imgs']})")
         if not r.get("schema"):
             issues["No structured data (JSON-LD)"].append(u)
+        elif "INVALID_JSONLD" in r.get("schema", ""):
+            issues["Invalid JSON-LD (parse error)"].append(u)
+        if r.get("http_internal_links", 0):
+            issues["Internal links using http:// (HTTPS consistency)"].append(f"{u} ({r['http_internal_links']})")
         if r.get("secs", 0) > 3:
             issues["Slow server response (> 3s full HTML)"].append(f"{u} ({r['secs']}s)")
         if r.get("internal_links_in", 0) == 0 and r["url"].rstrip("/") != meta["root"].rstrip("/"):

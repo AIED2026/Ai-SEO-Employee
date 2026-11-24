@@ -20,7 +20,7 @@ House rules: `${CLAUDE_PLUGIN_ROOT}/skills/seo-lead/SKILL.md` and `references/op
 4. **Competitor signals (light):** if a competitor snapshot is older than 7 days, skip; otherwise note any
    new competitor URLs from the last `competitor_watch.py` run.
 5. **Task follow-up:** open tasks past `due` or `verify_by`; approved tasks not yet applied; blocked items.
-6. Distinguish normal volatility from meaningful anomalies. If clicks fell ≥ 20% on a meaningful base,
+6. Answer the **5 daily decision questions** (`references/operating-model.md`) for every candidate finding. Distinguish normal volatility from meaningful anomalies. If clicks fell ≥ 20% on a meaningful base,
    start `traffic-drop-diagnosis` (and say so).
 7. Add new P0/P1 findings to `tasks.csv` (dedupe first); log `observe`/`alert` lines; rebuild the dashboard.
 

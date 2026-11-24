@@ -21,3 +21,14 @@ House rules: `${CLAUDE_PLUGIN_ROOT}/skills/seo-lead/SKILL.md` (load first). Work
 5. Log it.
 
 Be honest about method limits: AI answers vary by run, location and login state. Report results as a sample.
+
+## Recording standard (founders' checklist §7)
+For every prompt run record: **platform** (Google AI Overview / ChatGPT / Perplexity / Gemini / Copilot /
+web-search sample) · **prompt** (exact) · **date** · **geography** (country/city, logged-in or not) ·
+**observed result** (mentioned? cited URL? competitors? sources?). Use the same method each month so
+results are comparable. Also note **inaccurate, missing or inconsistent brand information** in AI answers
+and turn it into fixes (first-party page clarity, author/organisation credibility, structured data,
+explanatory content). Add **AI referral traffic** from GA4 (chatgpt.com, perplexity.ai, gemini, copilot)
+where analytics can identify it.
+Caveat for every report: AI answers vary by prompt, location, account and time; a prompt sample is not
+a complete ranking or a guaranteed citation measurement.
