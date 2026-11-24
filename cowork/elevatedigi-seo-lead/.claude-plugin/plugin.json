@@ -1,0 +1,28 @@
+{
+  "name": "elevatedigi-seo-lead",
+  "version": "1.0.0",
+  "description": "ElevateDigi's AI Senior SEO Lead (SEO, AEO, GEO) for India, UAE and export markets. Works in your signed-in Chrome (Search Console, GA4, Business Profile, Bing, WordPress) without sharing passwords. Weekly checks with spam detection, audits, keyword research, content briefs, approved on-page fixes, AI-visibility checks and monthly reports, with per-client memory and strict approvals.",
+  "author": {
+    "name": "ElevateDigi"
+  },
+  "keywords": [
+    "seo",
+    "aeo",
+    "geo",
+    "ai-overviews",
+    "search-console",
+    "ga4",
+    "google-business-profile",
+    "wordpress",
+    "local-seo",
+    "india",
+    "uae",
+    "b2b-export",
+    "agency",
+    "multi-client",
+    "reporting",
+    "technical-seo"
+  ],
+  "license": "LicenseRef-Proprietary",
+  "icon": ".claude-plugin/icon.png"
+}

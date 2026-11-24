@@ -1,0 +1,14 @@
+{
+  "name": "elevatedigi",
+  "owner": {
+    "name": "ElevateDigi"
+  },
+  "plugins": [
+    {
+      "name": "elevatedigi-seo-lead",
+      "source": "./cowork/elevatedigi-seo-lead",
+      "description": "AI Senior SEO Lead (SEO, AEO, GEO) for ElevateDigi's clients, working through your signed-in Chrome."
+    }
+  ],
+  "description": "ElevateDigi's internal Claude plugins"
+}
