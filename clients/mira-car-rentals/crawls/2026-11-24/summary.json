@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "root": "https://miracarrentalsgoa.com/",
+    "sitemaps": [
+      "https://miracarrentalsgoa.com/sitemap.xml"
+    ],
+    "sitemap_url_count": 0,
+    "host_variants": {
+      "https://miracarrentalsgoa.com/": "200 -> https://miracarrentalsgoa.com/",
+      "https://www.miracarrentalsgoa.com/": "200 -> https://miracarrentalsgoa.com/",
+      "http://miracarrentalsgoa.com/": "200 -> https://miracarrentalsgoa.com/"
+    },
+    "soft_404": false,
+    "crawled": 118,
+    "crawl_capped": false
+  },
+  "issue_counts": {
+    "Internal URLs that redirect": 1,
+    "Images missing alt text": 46,
+    "Title > 65 chars (truncation risk)": 66,
+    "Meta description > 165 chars": 22,
+    "Thin content (< 250 words rendered in HTML)": 2,
+    "Canonicalised to a different URL": 6,
+    "Missing meta description": 57,
+    "Multiple H1s": 49,
+    "Slow server response (> 3s full HTML)": 11,
+    "Noindex pages": 12,
+    "No H1": 12,
+    "Duplicate titles": 7,
+    "Duplicate meta descriptions": 7
+  },
+  "html_pages_200": 118
+}

@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "root": "https://www.theelevatedigi.com/",
+    "sitemaps": [
+      "https://theelevatedigi.com/blogs/post-sitemap.xml",
+      "https://www.theelevatedigi.com/sitemap.xml"
+    ],
+    "sitemap_url_count": 186,
+    "host_variants": {
+      "https://theelevatedigi.com/": "200 -> https://theelevatedigi.com/",
+      "https://www.theelevatedigi.com/": "200 -> https://www.theelevatedigi.com/",
+      "http://theelevatedigi.com/": "200 -> https://theelevatedigi.com/"
+    },
+    "soft_404": true,
+    "crawled": 250,
+    "crawl_capped": true
+  },
+  "issue_counts": {
+    "Missing <title>": 124,
+    "Missing meta description": 125,
+    "No H1": 124,
+    "Missing canonical": 124,
+    "Thin content (< 250 words rendered in HTML)": 124,
+    "Images missing alt text": 250,
+    "No structured data (JSON-LD)": 124,
+    "Orphan-ish (0 internal links found pointing in)": 88,
+    "Title > 65 chars (truncation risk)": 9,
+    "Multiple H1s": 125,
+    "Noindex pages": 7,
+    "Canonicalised to a different URL": 9,
+    "Duplicate meta descriptions": 1,
+    "SITE: non-existent URLs return 200 (soft 404)": 1,
+    "SITE: www/non-www/http do not resolve to one host": 3
+  },
+  "html_pages_200": 250
+}

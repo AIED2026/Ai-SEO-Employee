@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "root": "https://superironfoundry.com/",
+    "sitemaps": [
+      "https://superironfoundry.com/author-sitemap.xml",
+      "https://superironfoundry.com/category-sitemap.xml",
+      "https://superironfoundry.com/page-sitemap.xml",
+      "https://superironfoundry.com/post-sitemap.xml",
+      "https://superironfoundry.com/sitemap_index.xml",
+      "https://superironfoundry.com/sliders-sitemap.xml"
+    ],
+    "sitemap_url_count": 145,
+    "host_variants": {
+      "https://superironfoundry.com/": "200 -> https://superironfoundry.com/",
+      "https://www.superironfoundry.com/": "200 -> https://superironfoundry.com/",
+      "http://superironfoundry.com/": "200 -> https://superironfoundry.com/"
+    },
+    "soft_404": false,
+    "crawled": 175,
+    "crawl_capped": false
+  },
+  "issue_counts": {
+    "Broken/erroring URLs (4xx/5xx/ERR)": 1,
+    "Internal URLs that redirect": 16,
+    "Missing meta description": 106,
+    "Multiple H1s": 123,
+    "Images missing alt text": 174,
+    "Title > 65 chars (truncation risk)": 13,
+    "Meta description > 165 chars": 8,
+    "No H1": 8,
+    "Orphan-ish (0 internal links found pointing in)": 16,
+    "Canonicalised to a different URL": 10,
+    "Slow server response (> 3s full HTML)": 2,
+    "Duplicate titles": 18,
+    "Duplicate meta descriptions": 11
+  },
+  "html_pages_200": 174
+}

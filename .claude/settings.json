@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 tools/crawl.py:*)",
+      "Bash(python3 tools/diff_crawls.py:*)",
+      "Bash(python3 tools/psi.py:*)",
+      "Bash(python3 tools/wp.py get:*)",
+      "Bash(python3 tools/wp.py whoami:*)"
+    ]
+  }
+}

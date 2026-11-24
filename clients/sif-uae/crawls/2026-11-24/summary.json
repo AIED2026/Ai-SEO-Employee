@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "root": "https://sifintuae.com/",
+    "sitemaps": [
+      "https://sifintuae.com/sitemap.xml",
+      "https://sifintuae.com/wp-sitemap.xml"
+    ],
+    "sitemap_url_count": 118,
+    "host_variants": {
+      "https://sifintuae.com/": "200 -> https://sifintuae.com/",
+      "https://www.sifintuae.com/": "200 -> https://sifintuae.com/",
+      "http://sifintuae.com/": "200 -> https://sifintuae.com/"
+    },
+    "soft_404": false,
+    "crawled": 71,
+    "crawl_capped": false
+  },
+  "issue_counts": {
+    "Title < 25 chars (under-optimised)": 19,
+    "Missing meta description": 37,
+    "No structured data (JSON-LD)": 50,
+    "Images missing alt text": 60,
+    "Meta description > 165 chars": 10,
+    "Missing canonical": 3,
+    "Title > 65 chars (truncation risk)": 4,
+    "Duplicate titles": 1
+  },
+  "html_pages_200": 61
+}

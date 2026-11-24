@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "root": "https://www.abhyaass.com/",
+    "sitemaps": [
+      "https://www.abhyaass.com/sitemap.xml",
+      "https://www.abhyaass.com/sitemap_index.xml",
+      "https://www.abhyaass.com/wp-sitemap.xml"
+    ],
+    "sitemap_url_count": 7,
+    "host_variants": {
+      "https://abhyaass.com/": "ERR HTTPSConnectionPool(host='abhyaass.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certif",
+      "https://www.abhyaass.com/": "200 -> https://www.abhyaass.com/",
+      "http://abhyaass.com/": "ERR ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))"
+    },
+    "soft_404": false,
+    "crawled": 10,
+    "crawl_capped": false
+  },
+  "issue_counts": {
+    "Title > 65 chars (truncation risk)": 1,
+    "Multiple H1s": 3,
+    "Canonical points to ANOTHER domain": 9,
+    "Images missing alt text": 3,
+    "No structured data (JSON-LD)": 10,
+    "Title < 25 chars (under-optimised)": 8,
+    "Missing meta description": 9,
+    "Thin content (< 250 words rendered in HTML)": 5,
+    "No H1": 5,
+    "Missing canonical": 1
+  },
+  "html_pages_200": 10
+}
