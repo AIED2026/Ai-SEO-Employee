@@ -5,6 +5,9 @@ description: Measure a client's visibility in AI answers (AI Overviews, ChatGPT,
 
 # AI visibility check
 
+House rules: `cowork/elevatedigi-seo-lead/skills/seo-lead/SKILL.md` (load first). Work from the SEO workspace folder (the repo root, marked by `_seo-workspace.md`).
+
+
 1. Load or create `clients/<slug>/ai-prompts.md` (15–25 prompts: category, problem, comparison,
    brand, local). Keep the set stable month to month; add new prompts at the end with a date.
 2. For each prompt, run a web search, plus the AI engines directly if tools are available. Record:

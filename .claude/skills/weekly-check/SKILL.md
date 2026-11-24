@@ -1,37 +1,61 @@
 ---
 name: weekly-check
-description: Monday health check for one or all SEO clients — crawl, diff against last crawl, spam scan, GSC movers, then a 5-line status note and top 3 actions per client. Use for "weekly check", "how are the clients doing", "run the Monday check", or a scheduled weekly run.
+description: "Weekly SEO review for one or all clients (playbook section 3): crawl + diff + spam scan, performance & anomaly report, keyword opportunities, content plan, technical issue tracker, competitor summary, backlink observations, local review where relevant, and next week's prioritised plan. It answers the senior SEO manager's 7 questions. Use for '/weekly', 'weekly check', 'how are the clients doing', 'run the Monday check', or a scheduled weekly run."
+metadata:
+  version: "1.1.0"
 ---
 
-# Weekly check
+# Weekly review (Tier A; recommends Tier B/C work for approval)
 
-Run for the client named, or all clients in `clients/` if none is named. One client at a time.
+House rules: `cowork/elevatedigi-seo-lead/skills/seo-lead/SKILL.md` and `references/operating-model.md`
+(load first). Work from the SEO workspace (the repo root); run tools as
+`python3 "cowork/elevatedigi-seo-lead/tools/<tool>.py" …`.
 
-## Steps (per client)
-1. Read `profile.md`, `action-plan.md`, and the tail of `log.md`.
-2. Crawl:
-   `python3 tools/crawl.py <url from profile> --max 500 --out clients/<slug>/crawls/<today>`
-3. Diff against the most recent previous crawl folder:
-   `python3 tools/diff_crawls.py clients/<slug>/crawls/<prev> clients/<slug>/crawls/<today>`
-4. **Spam scan:** `grep -iE "casino|betting|bet[0-9]|slot|1xbet|baji|jeet|krikya|viagra|cialis|loan-app|escort|porn" clients/<slug>/crawls/<today>/pages.csv`.
-   Any hit on a URL not seen last week → ALERT (see `playbooks/security-and-access.md`).
-5. If GSC is available: last 7 days vs previous 7 days for clicks, impressions, position. List top 5
-   gaining/losing pages and queries. Flag money pages that lost > 20% clicks.
-6. Check that the P0 items in `action-plan.md` still reproduce; mark fixed ones `Done (verified <date>)`.
-7. Write `clients/<slug>/reports/weekly-<today>.md`:
-   ```
-   Status: 🟢/🟠/🔴 — one-line reason
-   Changed since last week: …
-   Alerts: … (or none)
-   Top 3 actions this week: 1. … 2. … 3. … (with tier A/B/C)
-   Blockers: who owes what
-   ```
-8. Append a line to `log.md`.
+Run for the client named, or for every client in `clients/`, one at a time (strict isolation).
 
-## Output to the founders
-One combined message: a table of client · status · top alert · top action, then any Tier B approvals
-needed (change tables). Keep it scannable on a phone.
+## 1. Observe (per client)
+1. Read `profile.md`, `action-plan.md`, open rows of `tasks.csv`, tail of `log.md`.
+2. Crawl: `crawl.py <url> --max 500 --out clients/<slug>/crawls/<today>` (ElevateDigi: `--max 300`).
+   Diff: `diff_crawls.py clients/<slug>/crawls/<prev> clients/<slug>/crawls/<today>`.
+3. Spam scan: new URLs matching casino/betting/pharma/etc. in the crawl or diff → **P0 security alert**.
+4. `daily_watch.py . <slug>` (money pages, robots, sitemaps).
+5. Performance via `data-pull` (Chrome signed in): GSC last 7 days vs previous 7 and 28-day trend; GA4
+   organic sessions and key events. If unavailable, say "not available (no access)" in every section that needs it.
 
-## Alert thresholds
-New 4xx/5xx on money pages · new noindex or canonical change on any indexable page · indexable page
-count ±20% · spam URLs · site unreachable · money-page clicks −30% week over week.
+## 2. Diagnose: delegate to the specialists (briefs: client slug, workspace, date ranges, output path)
+| Deliverable | Agent | Output file |
+|---|---|---|
+| Performance & anomaly report | `analytics-agent` | `reports/weekly-<date>-performance.md` |
+| Prioritised keyword opportunities (pos 5–20, high-impr/low-CTR) | `keyword-research-agent` | `reports/weekly-<date>-keywords.md` |
+| Content production & refresh plan | `content-seo-agent` | `reports/weekly-<date>-content.md` |
+| Technical issue tracker (severity, owner) | `technical-seo-agent` | updates `tasks.csv` (type technical) |
+| Competitor intelligence summary | `competitor-intelligence-agent` | `reports/weekly-<date>-competitors.md` |
+| Backlink / authority observations | `offpage-seo-agent` | `reports/weekly-<date>-links.md` |
+| Local review (Mira, ElevateDigi, SIF UAE only) | `local-seo-agent` | `reports/weekly-<date>-local.md` |
+Small clients or quiet weeks: do the light version yourself instead of spawning every agent. Note which
+sections were skipped and why.
+
+## 3. Decide
+Merge findings, dedupe against `tasks.csv`, add new tasks (`tasks.py add …`), `tasks.py rescore`.
+Pick **3–5 actions for next week** by score, urgency, dependencies and risk.
+
+## 4. Write `clients/<slug>/reports/weekly-<today>.md`
+```
+Status: 🟢/🟠/🔴 (one-line reason)
+## Answers to the 7 questions
+1. Why did traffic/visibility/conversions change? … (Observed/Hypothesis · source · confidence)
+2. Which pages and queries explain the largest movement? …
+3. Which relevant keywords rank 5–20 with realistic upside? …
+4. Which competitors are gaining, on which topics? …
+5. Which high-impression pages have weak CTR? …
+6. Are we attracting the right audience and qualified enquiries? …
+7. Which action creates the greatest business impact next? …
+## Performance & anomalies · ## Keyword opportunities · ## Content plan · ## Technical tracker (P0/P1)
+## Competitors · ## Backlinks/authority · ## Local (if relevant)
+## Next week's plan (task IDs, owner, tier) · ## Needs approval · ## Blockers (who owes what)
+```
+Then log (`observe`, `diagnose`, `decide` lines) and rebuild the dashboard (`dashboard.py .`).
+
+## 5. Output to the founders (one message for the portfolio)
+Table: client · status · top alert · top action · approvals needed. Then the Tier B change tables to approve.
+Phone-readable. Never pad; "no meaningful change" is a valid answer.

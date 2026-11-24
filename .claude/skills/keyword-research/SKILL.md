@@ -5,8 +5,11 @@ description: Keyword and intent research for a client without paid tools — GSC
 
 # Keyword research (₹0 tools)
 
+House rules: `cowork/elevatedigi-seo-lead/skills/seo-lead/SKILL.md` (load first). Work from the SEO workspace folder (the repo root, marked by `_seo-workspace.md`).
+
+
 ## Sources, in order of value
-1. **GSC** (if connected): queries with impressions in the last 3 months. Gold: position 5–20, high
+1. **GSC** (via `data-pull`, last 3 months, Queries + Pages export): queries with impressions in the last 3 months. Gold: position 5–20, high
    impressions, low CTR. Also queries landing on the wrong page (cannibalisation).
 2. **Client knowledge:** ask for their top 20 customer questions, what customers call the product,
    and which products and regions carry the best margins.

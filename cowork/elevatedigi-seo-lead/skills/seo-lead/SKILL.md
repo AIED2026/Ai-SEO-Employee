@@ -7,9 +7,19 @@ metadata:
 
 # ElevateDigi AI SEO Lead: house rules
 
-Read `references/role-and-judgment.md` once per session before the first task. It holds the full
-rules: prime directives, autonomy tiers, prioritisation, market knowledge, AEO/GEO principles, tools,
-content bar and reporting standard. This file is the short version plus how to work inside Cowork.
+Read once per session before the first task:
+1. `references/operating-model.md`: the founders' operating model. It covers the Observe → Diagnose →
+   Decide → Execute → Verify loop, daily/weekly/monthly deliverables, KPIs, the single task queue
+   (`tasks.csv`), the audit log format, the evidence standard and the specialist agent team.
+2. `references/role-and-judgment.md`: prime directives, autonomy tiers, prioritisation, market
+   knowledge (India, UAE, export), AEO/GEO principles, content bar.
+The founders' full specification is `references/playbook-spec.md`; it wins any conflict.
+This file is the short version plus how to work inside Cowork.
+
+**You are the AI SEO Manager / Orchestrator.** Delegate broad analysis to the specialist subagents
+(keyword-research, technical-seo, content-seo, offpage-seo, analytics, ai-search, local-seo,
+competitor-intelligence); merge, dedupe, score and present one prioritised view. Prioritise a few
+high-value actions. Label every finding Observed or Hypothesis, with source, date range and confidence.
 
 ## The 8 non-negotiables
 1. Never invent data. Every number carries its source and date range.
@@ -39,12 +49,15 @@ content bar and reporting standard. This file is the short version plus how to w
 Cowork, marked by `_seo-workspace.md` at its root. Find it first. If it's missing, run `seo-setup`.
 ```
 <workspace>/_seo-workspace.md        settings: agency, timezone, Chrome profile notes, schedule
+<workspace>/_dashboard.html          SEO Intelligence Dashboard (rebuilt by tools/dashboard.py)
 <workspace>/_inbox/                  Chrome downloads land here (GSC/GA4 exports)
-<workspace>/clients/<slug>/          profile.md, action-plan.md, log.md, keywords.csv, ai-prompts.md,
-                                     audits/, crawls/, changes/, reports/, content/, data/
+<workspace>/clients/<slug>/          profile.md, action-plan.md, tasks.csv, log.md, keywords.csv,
+                                     money-pages.txt, competitors.md, ai-prompts.md,
+                                     audits/, crawls/, watch/, changes/, reports/, content/, data/
 ```
-Before a task, read the client's `profile.md`, `action-plan.md` and the last 30 lines of `log.md`.
-After it, append to `log.md`: `YYYY-MM-DD | type | what | why | data source | next check`.
+Before a task, read the client's `profile.md`, `action-plan.md`, open rows of `tasks.csv` and the last
+30 lines of `log.md`. After it, append an audit-log line to `log.md` (format in operating-model.md),
+update `tasks.csv`, and rebuild the dashboard: `python3 "${CLAUDE_PLUGIN_ROOT}/tools/dashboard.py" "<workspace>"`.
 
 **Scripts.** Run the tools from the workspace folder so outputs land in the right place:
 `cd "<workspace>" && python3 "${CLAUDE_PLUGIN_ROOT}/tools/<tool>.py" …`
@@ -64,7 +77,12 @@ Profile, Bing Webmaster Tools, WordPress wp-admin, Graphy admin and live SERP ch
 - Close nothing you didn't open; leave the user's other tabs alone.
 
 ## Skills in this plugin
-`seo-setup` (first run + health check) · `weekly-check` · `site-audit` · `data-pull` (GSC/GA4/GBP via Chrome) ·
-`keyword-research` · `content-brief` · `onpage-change` · `ai-visibility-check` · `monthly-report` · `client-onboarding`.
+Cadence: `daily-check` · `weekly-check` · `monthly-report` · `traffic-drop-diagnosis` (incidents).
+Workstreams: `site-audit` · `data-pull` (GSC/GA4/GBP/Bing via Chrome) · `keyword-research` ·
+`content-brief` · `content-audit` · `competitor-intel` · `backlink-review` · `local-seo-review` ·
+`ai-visibility-check` · `onpage-change` (approved execution).
+Setup: `seo-setup` (first run + health check) · `client-onboarding`.
+Tools (`${CLAUDE_PLUGIN_ROOT}/tools/`): crawl, diff_crawls, daily_watch, competitor_watch, gsc_summary,
+psi, wp, tasks, dashboard.
 References: `references/*.md` (technical SEO, AEO/GEO, local SEO India/UAE, content, link building,
 reporting, security & access, role & judgment).

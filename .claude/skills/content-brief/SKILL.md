@@ -5,7 +5,10 @@ description: Create a SERP-informed content brief (and optionally a full draft) 
 
 # Content brief → draft
 
-Follow `playbooks/content.md`. Steps:
+House rules: `cowork/elevatedigi-seo-lead/skills/seo-lead/SKILL.md` (load first). Work from the SEO workspace folder (the repo root, marked by `_seo-workspace.md`).
+
+
+Follow `cowork/elevatedigi-seo-lead/skills/seo-lead/references/content.md`. Steps:
 
 1. Read the client files. Confirm the keyword cluster exists in `keywords.csv` (else run a light `keyword-research`).
 2. Cannibalisation check: does an existing page already target it? (search crawl `pages.csv` titles/H1s). If yes, brief an **update** instead.
@@ -18,6 +21,6 @@ Follow `playbooks/content.md`. Steps:
    - Internal links: 3+ pages that should link in (with anchor), 2+ links out to money pages
    - Schema type(s), CTA, word range
 5. If asked for a draft: write it to `clients/<slug>/content/<topic>-draft.md` (or create a WordPress
-   **draft** via `tools/wp.py`, Tier A). Mark every claim that needs client confirmation as `[CONFIRM: …]`.
+   **draft** via `cowork/elevatedigi-seo-lead/tools/wp.py`, Tier A). Mark every claim that needs client confirmation as `[CONFIRM: …]`.
    Never publish (Tier B).
 6. Log it.

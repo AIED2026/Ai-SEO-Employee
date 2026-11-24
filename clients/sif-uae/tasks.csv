@@ -1,0 +1,13 @@
+id,created,type,title,evidence,severity,impact,confidence,effort,score,owner,approval_tier,status,due,depends_on,verify_by,result
+SUA-002,2026-11-24,analytics,"Connect GSC + GA4; track form, tel and WhatsApp events",No first-party data yet,P1,5,5,1,25.0,Founder,C,open,,,,
+SUA-001,2026-11-24,technical,Install an SEO plugin (Rank Math/Yoast) and keep one sitemap,No SEO plugin; 2 sitemaps in robots,P1,4,5,1,20.0,Developer,C,open,,,,
+SUA-003,2026-11-24,content,Rewrite home title 'Sif UAE' and 19 short titles,Crawl: 19 titles < 25 chars,P1,4,4,1,16.0,AI,B,open,,,,
+SUA-007,2026-11-24,content,"Approval pages: certificate numbers, scope, validity, approved products as text",Approval pages are the key differentiator,P1,4,4,2,8.0,Client,B,open,,,,
+SUA-004,2026-11-24,content,Meta descriptions for 37 pages; shorten 10 over 165 chars,Crawl 2026-11-24,P1,3,4,2,6.0,AI,B,open,,,,
+SUA-005,2026-11-24,ai-search,"Organization + LocalBusiness schema (Hamriyah address, phone, sameAs)",No JSON-LD on 50/61 pages,P1,3,4,2,6.0,AI,B,open,,,,
+SUA-006,2026-11-24,content,"Make smaller-emirate location pages substantive (Ajman manhole ~210 words vs Dubai ~1,600)",Text comparison 2026-11-24,P1,4,4,4,4.0,Writer,B,open,,,,
+SUA-008,2026-11-24,technical,"robots.txt: real AI user agents, remove crawl-delay",robots.txt 2026-11-24,P2,2,4,1,8.0,AI,B,open,,,,
+SUA-010,2026-11-24,local,Google Business Profile for Hamriyah Free Zone address,Not verified,P2,3,3,2,4.5,Founder,C,open,,,,
+SUA-009,2026-11-24,ai-search,Product + FAQPage schema on product and blog pages,No structured data,P2,3,3,3,3.0,AI,B,open,,,,
+SUA-011,2026-11-24,content,"Project case studies (emirate, contractor, products, load class)",Projects page thin on detail,P2,3,3,3,3.0,Client,B,open,,,,
+SUA-012,2026-11-24,content,Arabic versions of approval pages + home with hreflang,Public-sector buyers,P3,3,2,4,1.5,Writer,C,open,,,,

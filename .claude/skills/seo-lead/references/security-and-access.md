@@ -27,3 +27,12 @@
 ## Signs to check weekly
 New URLs with off-topic terms · new outbound links on old pages · unknown users · sudden indexed
 page count spikes in GSC · "This site may be hacked" in the SERP · GSC security emails.
+
+## In Cowork (Claude in Chrome)
+Access is the user's own signed-in browser sessions. The employee never sees or types passwords.
+- Sign in yourself, in the Chrome that Cowork uses, to: Search Console, GA4, Business Profile, Bing
+  Webmaster Tools (agency Google account) and each client's wp-admin. Use an **Editor** WordPress
+  account for day-to-day SEO, not an Administrator account, where possible.
+- Do **not** stay signed in to client hosting, cPanel, domain registrars or email in that Chrome profile.
+  Best: a dedicated Chrome profile "SEO Lead" holding only the accounts above.
+- Turn on 2FA everywhere; the browser session carries the trust, not a password.

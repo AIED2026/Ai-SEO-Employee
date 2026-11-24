@@ -18,3 +18,35 @@ Not ranking: isa at online mock test, isa at course fees, isa at passing marks, 
 
 ## Competitors (to confirm)
 ICAI's own DISA portal/BOS, Testbook/other CA prep platforms, YouTube educators, Telegram channels.
+
+## Conversions & lead qualification
+- Primary conversions: Course purchase/sign-up on Graphy, enquiry for live classes. Qualified = CA member preparing for ISA AT
+- Revenue goals: TBD (ask founders: target leads/month and average deal value)
+
+## Brand voice, editorial rules, compliance
+- Voice: Helpful, exam-focused, encouraging; plain English for busy CAs
+- Compliance / prohibited claims: Every exam fact must match ICAI's official notification; no pass-rate claims without data
+- Brand terms (for brand vs non-brand split in GSC): abhyaass, abhyas, abhyaas
+
+## Seasonality
+Spikes 6–8 weeks before each ISA AT exam cycle (e.g., Nov 2026); check ICAI notifications
+
+## KPIs & baseline (agree with founders; fill from first GSC/GA4 pull)
+| KPI | Baseline (period, source) | Target | Reporting window |
+|---|---|---|---|
+| Organic clicks (non-brand) | TBD | TBD | monthly |
+| Organic conversions | TBD | TBD | monthly |
+| Organic conversion rate | TBD | TBD | monthly |
+| Top-10 tracked keywords | TBD | TBD | monthly |
+| AI visibility (mentioned / cited, of N prompts) | TBD | TBD | monthly |
+| P0/P1 technical issues open (verified fixed) | see tasks.csv | 0 P0 | weekly |
+Attribution: GA4 default (data-driven), organic channel. Conversion definitions as above.
+
+## Experiments & outcomes
+(Record each change test: date, pages, hypothesis, result after 28 days. See changes/ and log.md.)
+
+## Approvals, permissions, owners, escalation
+- Approver for Tier B changes: TBD (founder name)
+- Implementers: Developer (TBD), Writer (TBD), client contact (TBD)
+- Escalation: P0/security → founders same day; client-facing items → founders only
+- Access (Cowork, signed-in Chrome): GSC TBD · GA4 TBD · wp-admin/platform TBD · Bing WMT TBD

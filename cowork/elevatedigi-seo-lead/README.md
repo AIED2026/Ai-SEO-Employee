@@ -16,21 +16,33 @@ ever sharing a password.
 4. Unzip `ElevateDigi-SEO-Workspace.zip` into a folder on your computer (e.g. `Documents/ElevateDigi SEO`,
    not inside a Google Drive synced folder) and **grant Cowork access** to it.
 5. In Cowork type **`/seo-setup`**. It finds the workspace, checks every sign-in and tells you what's missing.
-6. Schedule the weekly check: in Cowork create a **scheduled task**, every Monday at 8:45 AM, prompt `/weekly`.
-   (Your computer must be on and the Claude app open at that time.)
+6. Schedule the operating calendar in Cowork **scheduled tasks** (your computer must be on, Claude app open):
+   daily 9:10 AM Mon–Sat `/daily` · Mondays 8:45 AM `/weekly` · 3rd of each month `/report <client>` + `/dashboard`.
+
+## How it's organised (from the founders' Senior SEO Manager Playbook)
+- **Loop:** Observe → Diagnose → Decide → Execute → Verify.
+- **Team:** this session is the AI SEO Manager (orchestrator) with 8 specialist subagents: keyword
+  research, technical SEO, content SEO, off-page, analytics, AI search, local SEO, competitor intelligence.
+- **One task queue per client** (`tasks.csv`) with severity, score, owner and approval tier; full
+  audit log in `log.md`; **SEO Intelligence Dashboard** at `<workspace>/_dashboard.html`.
+- Spec and coverage map: `docs/` in the GitHub repo.
 
 ## Commands
 | Command | What it does |
 |---|---|
 | `/seo-setup` · `/seo-doctor` | Setup and health check |
-| `/weekly [client]` | Crawl, diff, spam scan, Search Console movers, status + top 3 actions |
+| `/daily [client]` | Daily health summary: what changed · why · evidence · action · owner · urgency · status |
+| `/weekly [client]` | Weekly review: the 7 weekly deliverables and answers to the 7 senior-SEO questions |
+| `/diagnose <client> [what dropped]` | Traffic-drop investigation with ranked hypotheses |
+| `/dashboard` · `/tasks [client\|approvals]` | Portfolio dashboard · task queue and approvals |
+| `/competitors` · `/backlinks` · `/content-audit` · `/local` `<client>` | Workstream reviews |
 | `/audit <client>` | Full SEO/AEO/GEO audit → prioritised action plan |
 | `/gsc <client> [range]` | Pull GSC / GA4 / GBP data via Chrome and summarise it |
 | `/keywords <client> [focus]` | Keyword map tied to pages |
 | `/brief <client> <topic> [draft]` | SERP-based brief (and draft) |
 | `/fix <client> <what>` | Change table → **your approval** → applied in wp-admin → verified |
 | `/ai-check <client>` | AI-visibility check (mentions/citations vs competitors) |
-| `/report <client> [month]` | Monthly report draft for founder review |
+| `/report <client> [month]` | Monthly review: the 7 monthly deliverables, report drafted for founder review |
 | `/new-client <name> <url>` | Onboard a new client |
 
 Plain language works too: "how is Mira doing this week?", "fix SIF India's canonicals".

@@ -24,3 +24,35 @@ To identify from GSC + SERP for "seo company in kolkata", "digital marketing age
 - Every blog post exists twice: `/blog/<slug>` (SPA, empty HTML) and `/blogs/<slug>` (WordPress).
   76 of 76 SPA blog slugs duplicate a WP post.
 - Positioning opportunity: the agency sells AEO/GEO, so its own site must be the showcase.
+
+## Conversions & lead qualification
+- Primary conversions: Lead form submit (Google Ads conversion + Freshsales CRM). Qualified = business with budget ≥ (TBD) for SEO/ads retainer
+- Revenue goals: TBD (ask founders: target leads/month and average deal value)
+
+## Brand voice, editorial rules, compliance
+- Voice: ElevateDigi, the agency's own voice: confident, practical, proof-led
+- Compliance / prohibited claims: Don't claim guaranteed rankings or 'No. 1 agency'. Client names only with permission
+- Brand terms (for brand vs non-brand split in GSC): elevatedigi, elevate digi, the elevate digi
+
+## Seasonality
+B2B budgets reset in April; Q4 (Oct–Dec) festive marketing demand
+
+## KPIs & baseline (agree with founders; fill from first GSC/GA4 pull)
+| KPI | Baseline (period, source) | Target | Reporting window |
+|---|---|---|---|
+| Organic clicks (non-brand) | TBD | TBD | monthly |
+| Organic conversions | TBD | TBD | monthly |
+| Organic conversion rate | TBD | TBD | monthly |
+| Top-10 tracked keywords | TBD | TBD | monthly |
+| AI visibility (mentioned / cited, of N prompts) | TBD | TBD | monthly |
+| P0/P1 technical issues open (verified fixed) | see tasks.csv | 0 P0 | weekly |
+Attribution: GA4 default (data-driven), organic channel. Conversion definitions as above.
+
+## Experiments & outcomes
+(Record each change test: date, pages, hypothesis, result after 28 days. See changes/ and log.md.)
+
+## Approvals, permissions, owners, escalation
+- Approver for Tier B changes: TBD (founder name)
+- Implementers: Developer (TBD), Writer (TBD), client contact (TBD)
+- Escalation: P0/security → founders same day; client-facing items → founders only
+- Access (Cowork, signed-in Chrome): GSC TBD · GA4 TBD · GBP TBD · wp-admin/platform TBD · Bing WMT TBD

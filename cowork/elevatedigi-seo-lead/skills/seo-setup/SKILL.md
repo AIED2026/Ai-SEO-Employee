@@ -28,7 +28,12 @@ Follow the house rules in `${CLAUDE_PLUGIN_ROOT}/skills/seo-lead/SKILL.md`.
 4. Ask the user to set Chrome's download location to `<workspace>/_inbox` (Settings → Downloads →
    Location; "Ask where to save each file" off), so exports land where Cowork can read them.
 5. Run the health check (B).
-6. Offer to create the weekly scheduled task in Cowork: Monday 08:45 IST, prompt `/weekly`.
+6. Offer to create the scheduled tasks in Cowork (the playbook's operating calendar):
+   - **Daily** 09:10 IST, Mon–Sat → `/daily`
+   - **Weekly** Monday 08:45 IST → `/weekly`
+   - **Monthly** 3rd of the month 10:20 IST → `/report` for each client, then `/dashboard`
+   (The computer must be on and the Claude app open at those times.)
+7. Build the dashboard: `dashboard.py "<workspace>"` and show the user where `_dashboard.html` is.
 
 ## B. Health check (/seo-doctor)
 Show a table: item · status ✅/⚠️/❌ · fix (one plain line). Check, in Chrome (read-only; never log in for the user):

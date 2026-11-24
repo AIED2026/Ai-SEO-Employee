@@ -1,33 +1,22 @@
-# ElevateDigi AI SEO Lead: founder's guide
+# ElevateDigi AI SEO Lead
 
-This folder is your AI SEO employee. Open it in Claude Code (desktop app, web or terminal) and talk
-to it like a senior SEO. It reads `CLAUDE.md` (its role and rules) automatically.
+An AI Senior SEO Manager (SEO · AEO · GEO) that runs the founders' **Senior SEO Manager Operating
+Playbook** (`docs/senior-seo-manager-playbook.md`) for a portfolio of client websites.
 
-## What to say to it
+## Two ways to run it
+| | **Cowork (recommended for daily work)** | **Cloud / Claude Code on the web** |
+|---|---|---|
+| Install | Upload `dist/elevatedigi-seo-lead.zip` in Cowork → Customize → Plugins; unzip `dist/ElevateDigi-SEO-Workspace.zip` | Start a session with this repo selected |
+| Data access | Your signed-in Chrome: Search Console, GA4, Business Profile, Bing, wp-admin | Crawls and public data only (no Chrome) |
+| Schedule | Cowork scheduled tasks: daily / weekly / monthly | Weekly cloud check (Mondays 8:45 IST) |
+| Guide | `cowork/elevatedigi-seo-lead/README.md` | `CLAUDE.md` |
 
-| You say | It does |
-|---|---|
-| "Run the weekly check" | Crawls all 5 sites, diffs vs last week, scans for spam, gives status + top 3 actions per client |
-| "Audit SIF UAE" | Full audit → `clients/sif-uae/audits/` + updated action plan |
-| "Keyword research for Mira, focus on airport rentals" | Keyword map tied to pages |
-| "Write a brief / draft for 'ISA AT passing marks' for Abhyaass" | SERP-based brief, optional draft (never publishes on its own) |
-| "Fix the meta descriptions on SIF India" | Prepares a change table → **waits for your approval** → applies with backups → verifies |
-| "AI visibility check for ElevateDigi" | Runs the prompt set, reports mentions/citations and competitors |
-| "Monthly report for Mira" | Draft report for you to review (never sent to clients by itself) |
-| "Onboard a new client: <name>, <url>" | Creates the folder, asks for what's missing, baseline audit, 90-day plan |
-
-## Autonomy (what it does alone vs asks)
-- **Does alone:** crawls, audits, research, briefs, drafts, reports, monitoring.
-- **Asks first:** any change on a live client site (titles, meta, schema, redirects, publishing).
-- **Only recommends:** structural/dev work, deleting content, anything sent to clients, spending money.
-
-## Setup checklist (one-time)
-1. **Rotate passwords** the previous SEO knew; move credentials to a password manager (see `playbooks/security-and-access.md`).
-2. **WordPress access per site:** create user `seo-ai` (role **Editor**) → Profile → Application Passwords → create.
-   Give it to Claude through the secure credential form (never paste into chat).
-3. **Search Console + GA4:** connect via a claude.ai connector, or add the AI's access as a read-only user.
-4. **PageSpeed API key** (free): Google Cloud Console → enable PageSpeed Insights API → create API key.
-5. **GitHub repo** (private) to store this folder, so it persists between sessions and can run on a schedule.
-
-## Folder map
-See section 11 of `CLAUDE.md`.
+## Layout
+- `cowork/elevatedigi-seo-lead/`: the plugin and **single source of truth** (skills, 8 specialist
+  agents, references, tools, commands)
+- `.claude/skills`, `.claude/agents`: generated for cloud sessions by `python3 scripts/sync_cloud.py`
+- `clients/<slug>/`: client memory (profile, action plan, task queue, audit log, keywords, money pages,
+  competitors, AI prompts, audits, crawls, watch snapshots, changes, reports, data)
+- `_dashboard.html`: SEO Intelligence Dashboard (`python3 cowork/elevatedigi-seo-lead/tools/dashboard.py .`)
+- `docs/`: founders' playbook (spec) and `spec-coverage.md`
+- `dist/`: install packages (rebuild with `python3 scripts/build_dist.py`)

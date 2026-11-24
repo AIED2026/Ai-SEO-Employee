@@ -5,15 +5,18 @@ description: Full SEO/AEO/GEO audit of a client site producing a prioritised, ev
 
 # Site audit
 
+House rules: `cowork/elevatedigi-seo-lead/skills/seo-lead/SKILL.md` (load first). Work from the SEO workspace folder (the repo root, marked by `_seo-workspace.md`).
+
+
 ## Inputs
 Client slug. Read `profile.md`, `action-plan.md`, `log.md` first.
 
 ## Procedure
-1. **Crawl** (up to 1000 URLs): `python3 tools/crawl.py <url> --max 1000 --out clients/<slug>/crawls/<today>`
-2. **Speed:** `python3 tools/psi.py <home> <2–4 money pages> --strategy mobile`
-3. **Index coverage (GSC, if connected):** indexed vs not-indexed reasons, sitemaps status, manual actions, security issues.
+1. **Crawl** (up to 1000 URLs): `python3 "cowork/elevatedigi-seo-lead/tools/crawl.py" <url> --max 1000 --out clients/<slug>/crawls/<today>`
+2. **Speed:** `python3 "cowork/elevatedigi-seo-lead/tools/psi.py" <home> <2–4 money pages> --strategy mobile`
+3. **Index coverage (GSC via `data-pull` in Chrome):** indexed vs not-indexed reasons, sitemaps status, manual actions, security issues.
 4. **Raw-HTML check of 3 money pages:** `curl -sL URL | grep -iE "<title|<h1|canonical|application/ld\+json"`. Is the content in HTML?
-5. **robots.txt and AI-crawler access** against `playbooks/aeo-geo.md`.
+5. **robots.txt and AI-crawler access** against `cowork/elevatedigi-seo-lead/skills/seo-lead/references/aeo-geo.md`.
 6. **Duplication:** duplicate titles, clusters of near-identical location/country pages (sample 2–3
    pairs and compare text), canonical targets.
 7. **On-page of money pages:** intent match vs the current SERP (web search), title/meta/H1, answer-first blocks, schema, internal links in.
