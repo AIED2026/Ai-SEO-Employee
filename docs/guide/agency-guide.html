@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AI SEO Lead: Agency Setup &amp; Operating Guide</title>
+<style>
+@page { size: A4; margin: 18mm 16mm 20mm 16mm; }
+@page :first { margin: 0; }
+:root{
+  --ink:#16202a; --muted:#5b6875; --line:#dfe4ea; --soft:#f3f6f8;
+  --brand:#0d3b46; --brand2:#145a68; --accent:#ffb81c;
+  --p0:#c62828; --p1:#e07800; --p2:#2f6fb3; --p3:#6b7785; --ok:#2e7d32;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:Inter, "Liberation Sans", sans-serif;color:var(--ink);font-size:10pt;line-height:1.5;background:#fff}
+h1{font-family:"Inter Display",Inter,sans-serif;font-size:21pt;line-height:1.15;margin:0 0 4mm;color:var(--brand);font-weight:700}
+h2{font-size:13pt;margin:7mm 0 2.5mm;color:var(--brand);font-weight:700}
+h3{font-size:10.5pt;margin:5mm 0 1.5mm;font-weight:700}
+p{margin:0 0 2.5mm}
+ul,ol{margin:0 0 3mm;padding-left:5mm}
+li{margin:0 0 1.2mm}
+code,.mono{font-family:"JetBrains Mono",monospace;font-size:8.8pt;background:var(--soft);padding:0.3mm 1.2mm;border-radius:1mm}
+table{width:100%;border-collapse:collapse;margin:2mm 0 4mm;font-size:9pt;page-break-inside:auto}
+tr{page-break-inside:avoid}
+th{background:var(--brand);color:#fff;text-align:left;font-weight:600;padding:2mm 2.5mm}
+td{border-bottom:1px solid var(--line);padding:1.8mm 2.5mm;vertical-align:top}
+tr:nth-child(even) td{background:#fafbfc}
+.section{page-break-before:always}
+.kicker{font-size:8.5pt;text-transform:uppercase;letter-spacing:.12em;color:var(--brand2);font-weight:700;margin-bottom:1.5mm}
+.lead{font-size:11pt;color:#2a3640;margin-bottom:4mm}
+.muted{color:var(--muted)}
+.box{border:1px solid var(--line);border-left:4px solid var(--brand2);background:var(--soft);border-radius:2mm;padding:3mm 4mm;margin:3mm 0 4mm;page-break-inside:avoid}
+.box.warn{border-left-color:var(--p0);background:#fdf3f3}
+.box.tip{border-left-color:var(--accent);background:#fff9ea}
+.box h3{margin-top:0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin:2mm 0 4mm}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3.5mm;margin:2mm 0 4mm}
+.card{border:1px solid var(--line);border-radius:2mm;padding:3mm 3.5mm;page-break-inside:avoid}
+.card b.t{display:block;color:var(--brand);margin-bottom:1mm}
+.step{display:grid;grid-template-columns:11mm 1fr;gap:3mm;margin:0 0 4mm;page-break-inside:avoid}
+.num{width:9mm;height:9mm;border-radius:50%;background:var(--brand);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:11pt}
+.step h3{margin:1mm 0 1.5mm}
+.pill{display:inline-block;padding:0.2mm 2mm;border-radius:10mm;font-size:8pt;font-weight:700;color:#fff;white-space:nowrap}
+.P0{background:var(--p0)}.P1{background:var(--p1)}.P2{background:var(--p2)}.P3{background:var(--p3)}
+.A{background:var(--ok)}.B{background:var(--p1)}.C{background:var(--p0)}
+.flow{display:flex;flex-wrap:wrap;gap:1.5mm;align-items:center;margin:2mm 0 4mm}
+.flow span{background:var(--soft);border:1px solid var(--line);border-radius:1.5mm;padding:1mm 2.5mm;font-weight:600;font-size:9pt}
+.flow i{color:var(--muted);font-style:normal}
+.check li{list-style:none;margin-left:-5mm;padding-left:6mm;position:relative}
+.check li:before{content:"☐";position:absolute;left:0;color:var(--brand2)}
+/* cover */
+.cover{height:297mm;width:210mm;background:var(--brand);color:#fff;position:relative;padding:30mm 22mm;overflow:hidden}
+.cover:after{content:"";position:absolute;right:-60mm;top:-40mm;width:170mm;height:170mm;border-radius:50%;border:18mm solid rgba(255,184,28,.18)}
+.cover .brand{font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:9pt;color:var(--accent)}
+.cover h1{color:#fff;font-size:34pt;margin:14mm 0 5mm;max-width:150mm}
+.cover .sub{font-size:13pt;color:#cfe2e7;max-width:140mm}
+.cover .meta{position:absolute;left:22mm;bottom:26mm;font-size:9.5pt;color:#cfe2e7;line-height:1.7}
+.cover img{width:26mm;height:26mm;border-radius:4mm}
+.cover .loop{margin-top:18mm;display:flex;gap:2mm;flex-wrap:wrap}
+.cover .loop span{border:1px solid rgba(255,255,255,.35);border-radius:10mm;padding:1.2mm 3.5mm;font-size:9pt}
+.toc{columns:2;column-gap:10mm;margin-top:3mm}
+.toc div{break-inside:avoid;margin-bottom:2.2mm}
+.toc b{color:var(--brand)}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <img src="../../cowork/elevatedigi-seo-lead/.claude-plugin/icon.png" alt="">
+  <div class="brand" style="margin-top:8mm">ElevateDigi · Internal operating guide</div>
+  <h1>AI SEO Lead: Agency Setup &amp; Operating Guide</h1>
+  <div class="sub">How to install, connect and run your AI Senior SEO Manager (SEO · AEO · GEO) in Claude Cowork for a portfolio of client websites.</div>
+  <div class="loop"><span>Observe</span><span>Diagnose</span><span>Decide</span><span>Execute</span><span>Verify</span><span>Learn</span></div>
+  <div class="meta">
+    Version 3 · November 2026<br>
+    Plugin: <b>elevatedigi-seo-lead</b> · Repository: github.com/AIED2026/Ai-SEO-Employee<br>
+    Built to the founders' <i>Senior SEO Manager Operating Playbook</i> and <i>Master Operating Checklist</i>
+  </div>
+</section>
+
+<!-- CONTENTS + OVERVIEW -->
+<section class="section">
+  <div class="kicker">Contents</div>
+  <div class="toc">
+    <div><b>1</b> What the AI SEO Lead is</div>
+    <div><b>2</b> Before you start: checklist</div>
+    <div><b>3</b> Setup in 8 steps</div>
+    <div><b>4</b> Security &amp; access rules</div>
+    <div><b>5</b> The operating rhythm</div>
+    <div><b>6</b> Command reference</div>
+    <div><b>7</b> Approvals: how you stay in control</div>
+    <div><b>8</b> Task queue &amp; dashboard</div>
+    <div><b>9</b> Everyday workflows (recipes)</div>
+    <div><b>10</b> Adding a new client</div>
+    <div><b>11</b> Who does what in the agency</div>
+    <div><b>12</b> Troubleshooting</div>
+    <div><b>13</b> Day-one priorities for current clients</div>
+    <div><b>A</b> Workspace files explained</div>
+  </div>
+
+  <h1 style="margin-top:9mm">1. What the AI SEO Lead is</h1>
+  <p class="lead">An AI employee that runs the full organic-growth function for every client website, the way an experienced Senior SEO Manager would. It is not a blog generator or a rank tracker. It monitors, diagnoses, prioritises, prepares the work, executes only what you approve, verifies the result and reports on business outcomes.</p>
+
+  <div class="grid3">
+    <div class="card"><b class="t">It does on its own</b>Crawls and audits, Search Console / GA4 / Business Profile reading, keyword research, briefs and drafts, competitor and backlink reviews, AI-visibility checks, daily/weekly/monthly reports, the dashboard.</div>
+    <div class="card"><b class="t">It asks first</b>Any change to a live site or profile: titles, meta, content, schema, canonicals, redirects, robots.txt, sitemaps, publishing, GBP posts, Search Console actions, outreach.</div>
+    <div class="card"><b class="t">It never does</b>Handle passwords; open email, hosting, users, plugins or settings; delete pages or disavow links on its own; send anything to clients; spend money; buy links.</div>
+  </div>
+
+  <h2>A manager with eight specialists</h2>
+  <p>The main session is the <b>AI SEO Manager (orchestrator)</b>. For broad work it briefs eight specialist agents, then merges their findings into one prioritised plan:</p>
+  <table>
+    <tr><th>Specialist</th><th>Covers</th></tr>
+    <tr><td>Keyword Research</td><td>Opportunities, intent, clusters, keyword-to-page mapping, gaps</td></tr>
+    <tr><td>Technical SEO</td><td>Crawling, indexing, canonicals, redirects, robots, sitemaps, internal links, schema, speed</td></tr>
+    <tr><td>Content SEO</td><td>Briefs, content audits, refresh/merge decisions, CTR fixes</td></tr>
+    <tr><td>Off-page SEO</td><td>Backlinks, referring domains, digital PR and outreach ideas</td></tr>
+    <tr><td>Analytics</td><td>Search Console + GA4 evidence, anomalies, conversions, KPIs</td></tr>
+    <tr><td>AI Search</td><td>Mentions and citations in AI Overviews, ChatGPT, Perplexity, Gemini, Copilot</td></tr>
+    <tr><td>Local SEO</td><td>Google Business Profile, reviews, NAP, location pages</td></tr>
+    <tr><td>Competitor Intelligence</td><td>Competitor new/updated pages, SERP changes, keyword gaps</td></tr>
+  </table>
+
+  <h2>Two ways it runs</h2>
+  <table>
+    <tr><th></th><th>Cowork on your computer (main)</th><th>Cloud (backup)</th></tr>
+    <tr><td><b>Data access</b></td><td>Your signed-in Chrome: Search Console, GA4, Business Profile, Bing, wp-admin</td><td>Public crawls only, no Google data</td></tr>
+    <tr><td><b>Schedule</b></td><td>Daily, weekly and monthly scheduled tasks (computer on, Claude app open)</td><td>Weekly check every Monday 8:45 AM IST, even if your computer is off</td></tr>
+    <tr><td><b>Memory</b></td><td>Workspace folder on your computer</td><td>GitHub repository</td></tr>
+  </table>
+</section>
+
+<!-- CHECKLIST -->
+<section class="section">
+  <div class="kicker">Section 2</div>
+  <h1>Before you start: checklist</h1>
+  <p class="lead">Gather these before the setup session. Allow about 30–45 minutes for the first client and 10 minutes for each additional one.</p>
+
+  <div class="grid2">
+    <div class="card"><b class="t">Software</b>
+      <ul class="check">
+        <li>Claude desktop app (Mac or Windows) with <b>Cowork</b> on a paid plan</li>
+        <li><b>Claude in Chrome</b> extension installed in Google Chrome</li>
+        <li>The two files: <code>elevatedigi-seo-lead.zip</code> (plugin) and <code>ElevateDigi-SEO-Workspace.zip</code> (client memory)</li>
+      </ul></div>
+    <div class="card"><b class="t">Accounts (agency Google account)</b>
+      <ul class="check">
+        <li>Google Search Console access to each client property</li>
+        <li>Google Analytics 4 access (Viewer is enough)</li>
+        <li>Google Business Profile access for local clients</li>
+        <li>Bing Webmaster Tools</li>
+      </ul></div>
+    <div class="card"><b class="t">Per client website</b>
+      <ul class="check">
+        <li>A WordPress user with the <b>Editor</b> role for the SEO Lead to work in (or the platform admin, e.g. Graphy)</li>
+        <li>Name of the person who approves changes</li>
+        <li>Developer and writer contacts</li>
+      </ul></div>
+    <div class="card"><b class="t">Business information per client</b>
+      <ul class="check">
+        <li>Goals: leads / bookings / sales, and what counts as a qualified lead</li>
+        <li>Revenue goal or target leads per month</li>
+        <li>3–5 competitors the client actually loses business to</li>
+        <li>Things the brand must never claim</li>
+      </ul></div>
+  </div>
+
+  <div class="box warn"><h3>Do this first: rotate shared passwords</h3>
+  If passwords were kept in a spreadsheet or known by a departing employee, change them now (WordPress admins, hosting, email), turn on two-factor authentication, remove unknown WordPress users, and move credentials into a password manager. The SEO Lead never needs those passwords.</div>
+</section>
+
+<!-- SETUP -->
+<section class="section">
+  <div class="kicker">Section 3</div>
+  <h1>Setup in 8 steps</h1>
+
+  <div class="step"><div class="num">1</div><div><h3>Install the plugin in Cowork</h3>
+  Open the Claude desktop app → switch to <b>Cowork</b> → <b>Customize → Plugins → Upload</b> → choose <code>elevatedigi-seo-lead.zip</code> → confirm. Uploading inside a normal chat or a Project does not install a plugin. When a newer version arrives, upload it the same way; it replaces the old one.</div></div>
+
+  <div class="step"><div class="num">2</div><div><h3>Connect Chrome</h3>
+  Install the <b>Claude in Chrome</b> extension and, in Cowork, set Chrome as the preferred browser. This is how the SEO Lead reads your Google tools and edits WordPress, using your sessions and never your passwords.</div></div>
+
+  <div class="step"><div class="num">3</div><div><h3>Create a dedicated Chrome profile: "SEO Lead"</h3>
+  In Chrome: profile icon → <b>Add</b> → name it <i>SEO Lead</i>. In this profile only, sign in to:
+  <ul><li>the agency Google account (Search Console, GA4, Business Profile)</li>
+  <li>Bing Webmaster Tools</li>
+  <li>each client's <code>/wp-admin</code> with the Editor user (Graphy admin for Abhyaass)</li></ul>
+  <b>Do not</b> sign in to email, hosting/cPanel or domain registrars in this profile.</div></div>
+
+  <div class="step"><div class="num">4</div><div><h3>Set up the workspace folder</h3>
+  Unzip <code>ElevateDigi-SEO-Workspace.zip</code> into <code>Documents/ElevateDigi SEO</code>. Avoid any folder that Google Drive or OneDrive syncs. In Cowork, <b>grant access</b> to that folder. It holds every client's memory: profile, task queue, audit log, crawls, reports.</div></div>
+
+  <div class="step"><div class="num">5</div><div><h3>Point Chrome downloads to the inbox</h3>
+  In the SEO Lead Chrome profile: Settings → Downloads → Location = <code>Documents/ElevateDigi SEO/_inbox</code>, and turn <b>off</b> "Ask where to save each file". Search Console and GA4 exports then land where the SEO Lead can read them.</div></div>
+
+  <div class="step"><div class="num">6</div><div><h3>Run <code>/seo-setup</code></h3>
+  In Cowork, type <code>/seo-setup</code>. It finds the workspace and opens each tool in Chrome (read-only) to check what's connected. It also tests whether its scripts can reach client websites. You get a health table (✅ / ⚠️ / ❌) with one plain fix per line. Re-run <code>/seo-doctor</code> any time.</div></div>
+
+  <div class="step"><div class="num">7</div><div><h3>Create the scheduled tasks</h3>
+  Accept the offer at the end of setup, or create them in Cowork's scheduled tasks:
+  <table><tr><th>When</th><th>Prompt</th><th>You receive</th></tr>
+  <tr><td>Mon–Sat, 9:10 AM</td><td><code>/daily</code></td><td>Daily health summary</td></tr>
+  <tr><td>Monday, 8:45 AM</td><td><code>/weekly</code></td><td>Weekly review per client + approvals needed</td></tr>
+  <tr><td>3rd of each month, 10:20 AM</td><td><code>/report &lt;client&gt;</code> then <code>/dashboard</code></td><td>Monthly report drafts</td></tr></table>
+  Your computer must be on and the Claude app open at those times. The cloud copy still runs the Monday check if it isn't.</div></div>
+
+  <div class="step"><div class="num">8</div><div><h3>Complete onboarding for each client</h3>
+  Open <code>clients/&lt;client&gt;/profile.md</code> and <code>onboarding.md</code>, or just answer the SEO Lead's questions. Fill in the <b>TBD</b> items: revenue goals, approver, developer/writer, confirmed competitors. Once Search Console and GA4 are connected, ask "record the KPI baseline for &lt;client&gt;". When the onboarding checklist is complete, the gate changes to <b>PASSED</b>. Until then, strategic advice is labelled <i>provisional</i>.</div></div>
+</section>
+
+<!-- SECURITY -->
+<section class="section">
+  <div class="kicker">Section 4</div>
+  <h1>Security &amp; access rules</h1>
+  <p class="lead">Least privilege, your own sessions, a full audit trail. These rules are built into the SEO Lead; the agency's part is to set up access the same way.</p>
+  <table>
+    <tr><th>System</th><th>Access to give</th><th>How</th></tr>
+    <tr><td>WordPress</td><td><b>Editor</b> role, not Administrator</td><td>Create a user, sign in to it in the SEO Lead Chrome profile</td></tr>
+    <tr><td>Search Console</td><td>Restricted or Full user</td><td>GSC → Settings → Users and permissions</td></tr>
+    <tr><td>GA4</td><td>Viewer</td><td>Admin → Property access management</td></tr>
+    <tr><td>Business Profile</td><td>Manager, only if it will post</td><td>Business Profile → People and access</td></tr>
+    <tr><td>Hosting, cPanel, email, domains, billing</td><td><b>None</b></td><td>Humans only, never in the SEO Lead profile</td></tr>
+  </table>
+  <div class="grid2">
+    <div class="box"><h3>What the SEO Lead will never do</h3><ul>
+      <li>Type, save or reveal a password; if it meets a login page it stops and asks you</li>
+      <li>Open Users, Plugins, Themes, Settings or Tools pages in WordPress</li>
+      <li>Send anything to a client or contact third parties</li>
+      <li>Mix one client's data, voice or keywords with another's</li></ul></div>
+    <div class="box"><h3>What it always does</h3><ul>
+      <li>Backs up the old value before any change and writes rollback steps</li>
+      <li>Logs every action with source data, approval, actor and verification</li>
+      <li>Escalates security incidents (spam pages, injected links, unknown admins) the same day</li>
+      <li>Labels findings <i>Observed</i> or <i>Hypothesis</i>, with source, dates and confidence</li></ul></div>
+  </div>
+</section>
+
+<!-- RHYTHM -->
+<section class="section">
+  <div class="kicker">Section 5</div>
+  <h1>The operating rhythm</h1>
+  <div class="flow"><span>Observe</span><i>→</i><span>Diagnose</span><i>→</i><span>Decide</span><i>→</i><span>Execute</span><i>→</i><span>Verify</span><i>→</i><span>Learn</span></div>
+
+  <h2>Daily: health summary (5 minutes to read)</h2>
+  <p>Checks Search Console and GA4, money pages, robots.txt, sitemaps, spam URLs, priority keywords, competitor signals and overdue tasks. Before reporting anything it asks: is it meaningful after normal volatility and data delay? What explains it? Are conversions affected? Could tracking or a release explain it? Does it need escalation?</p>
+  <table><tr><th>Client</th><th>What changed</th><th>Why it matters</th><th>Evidence</th><th>Action</th><th>Owner</th><th>Urgency</th><th>Status</th></tr>
+  <tr><td>Example</td><td>Calangute page title changed</td><td>Money page; CTR risk</td><td>Daily watch, 24 Nov</td><td>Confirm with dev</td><td>AI</td><td><span class="pill P2">P2</span></td><td>Pending</td></tr></table>
+  <p class="muted">Quiet day: "No meaningful change" plus what was checked. It never invents findings.</p>
+
+  <h2>Weekly: review per client (Monday)</h2>
+  <p>Seven deliverables: performance &amp; anomaly report · keyword opportunities (positions 5–20, weak CTR) · content production/refresh plan · technical issue tracker · competitor summary · backlink &amp; local observations · next week's 3–5 priorities. It also answers in writing the seven questions a senior SEO manager asks, including "why did traffic change?" and "which action has the greatest business impact next?".</p>
+
+  <h2>Monthly: report &amp; roadmap (by the 5th)</h2>
+  <p>Business-outcome report (month on month and year on year) · comprehensive audit · competitor &amp; keyword-gap report · keyword map &amp; content calendar · backlink report · AI-visibility observations · next-month roadmap. Every report is a <b>draft for founder review</b>; the agency sends it to the client.</p>
+
+  <h2>On event: traffic drop</h2>
+  <p><code>/diagnose</code> validates the drop and segments it, finds the pages and queries responsible, and checks technical and release changes and SERP shifts. You get ranked hypotheses with confidence and what would prove each one, then fixes that need your approval, followed by monitoring at 14 and 28 days.</p>
+</section>
+
+<!-- COMMANDS -->
+<section class="section">
+  <div class="kicker">Section 6</div>
+  <h1>Command reference</h1>
+  <p class="lead">Type the command in Cowork, or say it in plain English ("how did Mira do this week?"). Client names: <code>sif-india</code>, <code>sif-uae</code>, <code>abhyaass</code>, <code>mira-car-rentals</code>, <code>elevatedigi</code>.</p>
+  <table>
+    <tr><th style="width:34%">Command</th><th>What you get</th></tr>
+    <tr><td colspan="2"><b>Setup</b></td></tr>
+    <tr><td><code>/seo-setup</code></td><td>First-run setup: workspace, sign-in checks, schedules, dashboard</td></tr>
+    <tr><td><code>/seo-doctor</code></td><td>Health check of every connection (read-only)</td></tr>
+    <tr><td><code>/new-client &lt;name&gt; &lt;url&gt;</code></td><td>Onboard a client: profile, checklist, baseline audit, 90-day plan</td></tr>
+    <tr><td colspan="2"><b>Cadence</b></td></tr>
+    <tr><td><code>/daily [client]</code></td><td>Daily health summary</td></tr>
+    <tr><td><code>/weekly [client]</code></td><td>Weekly review, the 7 deliverables and 7 questions</td></tr>
+    <tr><td><code>/report &lt;client&gt; [month]</code></td><td>Monthly review and report draft</td></tr>
+    <tr><td><code>/diagnose &lt;client&gt; [what dropped]</code></td><td>Traffic-drop investigation</td></tr>
+    <tr><td colspan="2"><b>Control</b></td></tr>
+    <tr><td><code>/dashboard</code></td><td>Rebuilds the SEO Intelligence Dashboard and summarises top actions</td></tr>
+    <tr><td><code>/tasks [client | approvals]</code></td><td>Task queue, or everything waiting for your approval</td></tr>
+    <tr><td><code>/fix &lt;client&gt; &lt;what&gt;</code></td><td>Change table → your approval → applied in wp-admin → verified</td></tr>
+    <tr><td colspan="2"><b>Workstreams</b></td></tr>
+    <tr><td><code>/audit &lt;client&gt;</code></td><td>Full SEO/AEO/GEO audit covering 14 technical areas</td></tr>
+    <tr><td><code>/gsc &lt;client&gt; [range]</code></td><td>Search Console / GA4 / Business Profile pull and summary</td></tr>
+    <tr><td><code>/keywords &lt;client&gt; [focus]</code></td><td>Keyword map tied to pages</td></tr>
+    <tr><td><code>/brief &lt;client&gt; &lt;topic&gt; [draft]</code></td><td>SERP-based brief, optional draft (saved as WordPress draft at most)</td></tr>
+    <tr><td><code>/content-audit &lt;client&gt;</code></td><td>Keep / refresh / merge / redirect decisions, internal links</td></tr>
+    <tr><td><code>/competitors &lt;client&gt;</code></td><td>Competitor changes and keyword gaps</td></tr>
+    <tr><td><code>/backlinks &lt;client&gt;</code></td><td>Backlink and authority review, outreach shortlist</td></tr>
+    <tr><td><code>/local &lt;client&gt;</code></td><td>Business Profile, reviews, NAP, local rankings</td></tr>
+    <tr><td><code>/ai-check &lt;client&gt;</code></td><td>AI-visibility check across a fixed prompt set</td></tr>
+  </table>
+</section>
+
+<!-- APPROVALS -->
+<section class="section">
+  <div class="kicker">Section 7</div>
+  <h1>Approvals: how you stay in control</h1>
+  <table>
+    <tr><th>Tier</th><th>Meaning</th><th>Examples</th></tr>
+    <tr><td><span class="pill A">A</span> Autonomous</td><td>Does it, then logs it</td><td>Reading data, crawls, research, briefs, drafts, reports</td></tr>
+    <tr><td><span class="pill B">B</span> Operator</td><td>Prepares → <b>you approve</b> → applies → verifies</td><td>Titles, meta, content edits, schema, canonicals, redirects, robots.txt, sitemaps, publishing, GBP posts, outreach</td></tr>
+    <tr><td><span class="pill C">C</span> Advisory</td><td>Recommends; your team does it</td><td>Templates, code, plugins, migrations, deleting pages, disavow, anything sent to clients, spending</td></tr>
+  </table>
+
+  <h2>What an approval request looks like</h2>
+  <table>
+    <tr><th>#</th><th>URL</th><th>Element</th><th>Current</th><th>Proposed</th><th>Reason / effect</th></tr>
+    <tr><td>1</td><td>/tactile-plate-manufacturers-in-usa/</td><td>Canonical</td><td>…/reticuline-gratings…</td><td>self</td><td>Page is hidden from Google; restores eligibility</td></tr>
+    <tr><td>2</td><td>/ (home)</td><td>Title</td><td>Home - Super Iron Foundry</td><td>Ductile &amp; Cast Iron Castings Manufacturer, India</td><td>Clearer relevance and CTR</td></tr>
+  </table>
+  <p>Reply in plain words: <b>"approve all"</b>, <b>"approve 1 and 3"</b>, <b>"change row 2 to …"</b> or <b>"reject 2"</b>. Nothing changes on a live site until you do. The task tool technically refuses to move a task to execution while approval is still pending.</p>
+
+  <h2>Task workflow</h2>
+  <div class="flow"><span>Detect</span><i>→</i><span>Investigate</span><i>→</i><span>Recommend</span><i>→</i><span>Await approval</span><i>→</i><span>Execute</span><i>→</i><span>Verify</span><i>→</i><span>Report</span><i>→</i><span>Close</span></div>
+  <div class="box"><h3>Before any task is closed (10-point gate)</h3>
+  Aligned with a business objective · supported by current evidence · intent and user impact considered · impact, confidence, effort and risk assessed · approval needed? · approval recorded · executed within scope · verified live · action, data, time and outcome logged · follow-up measurement date set.</div>
+</section>
+
+<!-- TASKS & DASHBOARD -->
+<section class="section">
+  <div class="kicker">Section 8</div>
+  <h1>Task queue &amp; dashboard</h1>
+  <h2>One prioritised queue per client</h2>
+  <p>Every finding becomes a task with: priority, score, owner, approval, status (<i>Pending / In Progress / Completed / Blocked</i>), workflow stage, verification and due dates. Score = Impact × Confidence ÷ Effort (each 1–5). It ranks tasks against each other and is not a traffic forecast. Risk and urgency override the score.</p>
+  <table>
+    <tr><th>Priority</th><th>Example</th><th>Expected response</th></tr>
+    <tr><td><span class="pill P0">P0 Critical</span></td><td>Site down, accidental de-indexing, tracking failure, hack/spam</td><td>Escalate immediately</td></tr>
+    <tr><td><span class="pill P1">P1 High</span></td><td>Important pages hit by indexing, canonical, redirect or visibility issues</td><td>Urgent remediation</td></tr>
+    <tr><td><span class="pill P2">P2 Medium</span></td><td>Content gaps, internal links, CTR opportunities</td><td>This work cycle</td></tr>
+    <tr><td><span class="pill P3">P3 Low</span></td><td>Minor metadata, low-impact tweaks</td><td>Backlog, batch</td></tr>
+  </table>
+
+  <h2>SEO Intelligence Dashboard</h2>
+  <p>Open <code>Documents/ElevateDigi SEO/_dashboard.html</code> in any browser, or type <code>/dashboard</code>. One page for the whole portfolio:</p>
+  <ul>
+    <li><b>Portfolio row per client:</b> status, daily-watch alerts, open P0/P1, approvals waiting, last crawl, Search Console summary, <b>onboarding gate</b>, last daily/weekly/monthly run</li>
+    <li><b>Client cards:</b> top 5 actions, alerts, site health vs previous crawl, <b>integration status and data freshness</b>, recent activity, completed and verified tasks</li>
+  </ul>
+  <div class="box tip"><h3>Founder routine (10 minutes a day)</h3>
+  Read the daily summary → open the dashboard → answer pending approvals with <code>/tasks approvals</code> → forward Tier C items to the developer or writer.</div>
+</section>
+
+<!-- RECIPES -->
+<section class="section">
+  <div class="kicker">Section 9</div>
+  <h1>Everyday workflows (recipes)</h1>
+  <div class="grid2">
+    <div class="card"><b class="t">Monday morning</b><ol>
+      <li>Weekly review arrives (scheduled)</li>
+      <li>Read the portfolio table: status, top alert, top action</li>
+      <li>Approve the change tables in the reply</li>
+      <li>Assign Tier C tasks to your team</li></ol></div>
+    <div class="card"><b class="t">"Traffic dropped for a client"</b><ol>
+      <li><code>/diagnose mira-car-rentals clicks down since 10 Dec</code></li>
+      <li>Review the ranked hypotheses</li>
+      <li>Approve the fixes</li>
+      <li>It checks recovery at 14 and 28 days</li></ol></div>
+    <div class="card"><b class="t">Fix on-page issues</b><ol>
+      <li><code>/fix sif-india canonicals</code></li>
+      <li>Review the before/after table</li>
+      <li>Reply "approve all"</li>
+      <li>It edits in wp-admin, re-checks the live page and logs it</li></ol></div>
+    <div class="card"><b class="t">New article</b><ol>
+      <li><code>/keywords abhyaass ISA AT exam</code></li>
+      <li><code>/brief abhyaass "ISA AT passing marks" draft</code></li>
+      <li>Client/expert fills the <code>[CONFIRM]</code> facts</li>
+      <li><code>/fix abhyaass publish the approved article</code></li></ol></div>
+    <div class="card"><b class="t">Client monthly report</b><ol>
+      <li>Draft arrives on the 3rd (scheduled)</li>
+      <li>Founder reviews and edits</li>
+      <li>The agency sends it in its own branding</li></ol></div>
+    <div class="card"><b class="t">Are we visible in ChatGPT?</b><ol>
+      <li><code>/ai-check elevatedigi</code></li>
+      <li>See mentioned/cited out of N prompts, which competitors and sources are cited instead</li>
+      <li>Approve the off-site and on-page fixes</li></ol></div>
+  </div>
+  <div class="box tip"><h3>Getting the best output</h3>
+  Give it first-hand input: real prices, specs, photos, case results, customers' top 20 questions. Without them, content stays generic, doesn't rank and doesn't get cited. Ask "what do you need from the client?" at any time.</div>
+</section>
+
+<!-- NEW CLIENT + ROLES -->
+<section class="section">
+  <div class="kicker">Section 10</div>
+  <h1>Adding a new client</h1>
+  <div class="step"><div class="num">1</div><div><h3>Allow access</h3>Sign in to the client's GSC, GA4, Business Profile and wp-admin (Editor) in the SEO Lead Chrome profile.</div></div>
+  <div class="step"><div class="num">2</div><div><h3>Run <code>/new-client "Client Name" https://client.com</code></h3>It creates the client folder and asks, in one message, only for what it can't find on the website. Then it runs the baseline audit and drafts a 90-day plan.</div></div>
+  <div class="step"><div class="num">3</div><div><h3>Pass the onboarding gate</h3>The 16-item checklist in <code>onboarding.md</code>: business model, audiences, objectives, GSC/GA4 verified, conversions confirmed, competitors, brand rules, baselines (traffic, conversions, backlinks), first crawl, KPIs, approvers. Missing integrations are always shown.</div></div>
+
+  <h1 style="margin-top:8mm">11. Who does what in the agency</h1>
+  <table>
+    <tr><th>Role</th><th>Responsibilities</th></tr>
+    <tr><td><b>Founder / approver</b></td><td>Approves Tier B changes and monthly reports, sets client goals and KPIs, owns security incidents</td></tr>
+    <tr><td><b>Account manager</b></td><td>Collects client inputs (prices, specs, case studies, questions), sends approved reports, gets client sign-off</td></tr>
+    <tr><td><b>Developer</b></td><td>Tier C technical work: templates, rendering, redirects at server level, speed, plugin installs</td></tr>
+    <tr><td><b>Writer / expert</b></td><td>Completes drafts from briefs, confirms facts marked <code>[CONFIRM]</code>, adds first-hand expertise</td></tr>
+    <tr><td><b>AI SEO Lead</b></td><td>Monitoring, diagnosis, prioritisation, research, briefs, drafts, approved changes, verification, reporting, audit log</td></tr>
+  </table>
+</section>
+
+<!-- TROUBLESHOOTING -->
+<section class="section">
+  <div class="kicker">Section 12</div>
+  <h1>Troubleshooting</h1>
+  <table>
+    <tr><th style="width:36%">Problem</th><th>Fix</th></tr>
+    <tr><td>"Workspace not found"</td><td>The folder moved or access was removed. Grant Cowork access again and run <code>/seo-setup</code></td></tr>
+    <tr><td>It stops at a Google or WordPress login page</td><td>Expected: it never types passwords. Sign in yourself in the SEO Lead Chrome profile, then say "continue"</td></tr>
+    <tr><td>It's using the wrong Chrome or account</td><td>Set Cowork's preferred browser to the SEO Lead profile's Chrome; check the profile shows the agency account</td></tr>
+    <tr><td>Search Console export not found</td><td>Chrome's download folder isn't <code>_inbox</code>. Fix step 5 and export again</td></tr>
+    <tr><td>Crawl fails with a network error</td><td>Cowork's sandbox can't reach the site. Allow network access for client domains in Cowork settings; meanwhile it uses Chrome for spot checks and says so</td></tr>
+    <tr><td>Site blocks the crawler (403/406)</td><td>The host's firewall (e.g. mod_security). Ask the host to allow the crawler, or rely on Search Console data</td></tr>
+    <tr><td>PageSpeed check fails (quota)</td><td>Create a free PageSpeed Insights API key in Google Cloud Console and save it when asked</td></tr>
+    <tr><td>Scheduled task didn't run</td><td>The computer was off or the Claude app was closed. Run the command manually; the cloud Monday check still ran</td></tr>
+    <tr><td>Reports say "not available"</td><td>A data source isn't connected (see the dashboard's integration status). It labels missing data instead of guessing</td></tr>
+    <tr><td>Two computers in the agency</td><td>Install the plugin on both, but keep one workspace as master (sync via the GitHub repo) to avoid conflicting task queues</td></tr>
+  </table>
+</section>
+
+<!-- DAY ONE -->
+<section class="section">
+  <div class="kicker">Section 13</div>
+  <h1>Day-one priorities for current clients</h1>
+  <p class="lead">From the baseline crawl of 24 November 2026 (624 pages). Full evidence in each client's <code>action-plan.md</code> and <code>tasks.csv</code>.</p>
+  <table>
+    <tr><th>Client</th><th>Priority</th><th>Issue</th><th>Next step</th></tr>
+    <tr><td><b>Mira Car Rentals</b></td><td><span class="pill P0">P0</span></td><td>40 gambling spam posts on the site, linked from ~70 pages: hack or misuse of WordPress access</td><td>Founders: find the author, rotate passwords, remove unknown users, malware scan, then delete (approval)</td></tr>
+    <tr><td><b>SIF India</b></td><td><span class="pill P0">P0</span></td><td>9 product pages canonicalised to an unrelated page, so they are hidden from Google</td><td><code>/fix sif-india canonicals</code>: 10-minute fix after approval</td></tr>
+    <tr><td><b>ElevateDigi</b></td><td><span class="pill P0">P0</span></td><td>Main site sends empty HTML to crawlers; duplicate blog; soft 404s; two hosts</td><td>Developer: pre-render/SSR, one host, real 404s, consolidate blog</td></tr>
+    <tr><td><b>Abhyaass</b></td><td><span class="pill P0">P0</span></td><td>Canonicals point to <code>abhyaass.graphy.com</code>, not the agency's domain</td><td>Set www.abhyaass.com as primary domain in Graphy; verify in GSC</td></tr>
+    <tr><td><b>SIF UAE</b></td><td><span class="pill P1">P1</span></td><td>No SEO plugin, weak titles ("Sif UAE"), no structured data</td><td>Install SEO plugin (dev), then <code>/fix sif-uae titles and meta</code></td></tr>
+  </table>
+  <div class="box"><h3>First week plan</h3>
+  Day 1: install, Chrome profile, <code>/seo-setup</code> · Day 1–2: Mira security clean-up, SIF India canonical fix · Day 3: connect GSC/GA4 for all five, record KPI baselines · Day 4: fill profile TBDs, pass onboarding gates · Day 5: first <code>/weekly</code> with real data.</div>
+</section>
+
+<!-- APPENDIX -->
+<section class="section">
+  <div class="kicker">Appendix A</div>
+  <h1>Workspace files explained</h1>
+  <table>
+    <tr><th style="width:32%">File / folder</th><th>What it is</th></tr>
+    <tr><td><code>_seo-workspace.md</code></td><td>Workspace settings (agency, timezone, schedules, approvers)</td></tr>
+    <tr><td><code>_dashboard.html</code></td><td>SEO Intelligence Dashboard</td></tr>
+    <tr><td><code>_inbox/</code></td><td>Where Chrome downloads Search Console / GA4 exports</td></tr>
+    <tr><td><code>clients/&lt;slug&gt;/profile.md</code></td><td>Business, goals, conversions, brand rules, seasonality, KPIs &amp; baseline, approvers</td></tr>
+    <tr><td><code>onboarding.md</code></td><td>Onboarding checklist, integration status and gate</td></tr>
+    <tr><td><code>action-plan.md</code> · <code>tasks.csv</code></td><td>Narrative plan · the single prioritised task queue</td></tr>
+    <tr><td><code>log.md</code></td><td>Audit log: every observation, decision, approval, change and verification</td></tr>
+    <tr><td><code>keywords.csv</code> · <code>money-pages.txt</code></td><td>Tracked keywords · key pages watched daily</td></tr>
+    <tr><td><code>competitors.md</code> · <code>ai-prompts.md</code></td><td>Competitor list and watch list · fixed AI-visibility prompt set</td></tr>
+    <tr><td><code>audits/ crawls/ watch/</code></td><td>Audit reports · raw crawl data · daily snapshots</td></tr>
+    <tr><td><code>changes/</code></td><td>Approved change tables with backups (rollback)</td></tr>
+    <tr><td><code>reports/ data/ content/</code></td><td>Daily/weekly/monthly reports · exports · briefs and drafts</td></tr>
+  </table>
+  <h2>Updates and backups</h2>
+  <ul>
+    <li><b>Plugin updates:</b> upload the new <code>elevatedigi-seo-lead.zip</code> in Cowork → Customize → Plugins; client memory is untouched.</li>
+    <li><b>Backups:</b> the workspace folder is the employee's memory. Back it up weekly, or keep it in sync with the GitHub repository <code>AIED2026/Ai-SEO-Employee</code>.</li>
+    <li><b>Specifications:</b> the founders' Playbook and Master Operating Checklist live in the repo's <code>docs/</code> folder, with a coverage map and an acceptance checklist showing current status.</li>
+  </ul>
+  <div class="box" style="margin-top:8mm"><h3>Final operating principle</h3>
+  Judge the AI SEO Lead by the quality of its decisions, the safety and accuracy of its execution, and its measurable contribution to clients' organic business outcomes. Do not judge it by how many keywords, pages or reports it produces.</div>
+</section>
+
+</body>
+</html>

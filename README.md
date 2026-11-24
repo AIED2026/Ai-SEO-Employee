@@ -19,4 +19,5 @@ Playbook** (`docs/senior-seo-manager-playbook.md`) for a portfolio of client web
   competitors, AI prompts, audits, crawls, watch snapshots, changes, reports, data)
 - `_dashboard.html`: SEO Intelligence Dashboard (`python3 cowork/elevatedigi-seo-lead/tools/dashboard.py .`)
 - `docs/`: founders' playbook (spec) and `spec-coverage.md`
-- `dist/`: install packages (rebuild with `python3 scripts/build_dist.py`)
+- `dist/`: install packages (rebuild with `python3 scripts/build_dist.py`) and the agency guide PDF
+- `docs/AI-SEO-Lead-Agency-Guide.pdf`: setup & operating guide for the agency (source: `docs/guide/agency-guide.html`)
